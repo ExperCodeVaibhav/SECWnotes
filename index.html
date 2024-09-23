@@ -3,30 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Analysis and Algorithms Notes</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
-        <h1 class="text-2xl font-bold text-center mb-6">Design Analysis and Algorithms Notes</h1>
-        
-        <div class="mb-4">
-            <a href="unit1.html" class="block bg-blue-500 text-white text-center py-4 rounded-lg shadow hover:bg-blue-600 transition duration-300">
-                Unit 1 Notes
-            </a>
-        </div>
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #333;
+            margin-bottom: 20px;
+        }
+        .important {
+            font-weight: bold;
+            color: #ff6f61;
+        }
 
-        <div>
-            <a href="unit2.html" class="block bg-green-500 text-white text-center py-4 rounded-lg shadow hover:bg-green-600 transition duration-300">
-                Unit 2 Notes
-            </a>
-        </div>
+        
+    </style>
+</head>
+<body>
+
+    <!-- Header with Navigation Links -->
+<header>
+    <h1>Algorithm Analysis Topics</h1>
+    <nav>
+        <ul>
+            <li><a href="#time-space-complexity">Time and Space Complexity</a></li>
+            <li><a href="#amortized-analysis">Amortized Analysis</a></li>
+            <li><a href="#min-max-comparisons">Min and Max Comparisons</a></li>
+            <li><a href="#iteration-method">Iteration Method</a></li>
+            <li><a href="#masters-theorem">Master's Theorem</a></li>
+            <li><a href="#d-and-c">Divide and Conquer</a></li>
+            <li><a href="#algorithm-comparison">Algorithm Comparison</a></li>
+            <li><a href="#sorting-algorithms">Sorting Algorithms</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+  
+
+    <!-- Time Complexity Section -->
+   <!-- Time and Space Complexity Section -->
+<section id="time-space-complexity" class="content">
+    <h2>Time and Space Complexity</h2>
+    <p>
+        Time complexity aur space complexity algorithms ke performance ko samajhne ke liye bahut zaroori hain. Yeh dono cheezein humein batati hain ki algorithm kitni der tak chalega aur kitna memory use karega.
+    </p>
+
+    <h3>Time Complexity</h3>
+    <p>
+        Time complexity yeh batata hai ki kisi algorithm ko chalane mein kitna time lagega, jab input size badhta hai. Iska notation hota hai:
+    </p>
+    <ul>
+        <li><strong>O(1):</strong> Constant time - Isme time input size ke saath change nahi hota.</li>
+        <li><strong>O(n):</strong> Linear time - Time input size ke saath seedha badhta hai.</li>
+        <li><strong>O(n^2):</strong> Quadratic time - Time input size ke square ke saath badhta hai.</li>
+        <li><strong>O(log n):</strong> Logarithmic time - Time input size ke log ke saath badhta hai.</li>
+    </ul>
+
+    <h3>Space Complexity</h3>
+    <p>
+        Space complexity yeh batata hai ki kisi algorithm ko execute karne ke liye kitni memory chahiye hoti hai. Iska notation bhi similar hota hai:
+    </p>
+    <ul>
+        <li><strong>O(1):</strong> Constant space - Memory use nahi badhta input size ke saath.</li>
+        <li><strong>O(n):</strong> Linear space - Memory input size ke saath badhta hai.</li>
+    </ul>
+
+    <h3>Performance Analysis</h3>
+    <p>
+        Performance analysis mein hum algorithm ki efficiency dekhte hain. Yeh humein batata hai ki kis algorithm ka time aur space complexity behtar hai. Kayi baar, ek algorithm ka time complexity acha hota hai lekin space complexity zyada hota hai, ya vice versa.
+    </p>
+    
+    <h3>Example</h3>
+    <p>
+        Maan lo humein ek list ko sort karna hai. 
+        <ul>
+            <li><strong>Bubble Sort:</strong> Iska time complexity O(n^2) hai, lekin yeh constant space O(1) use karta hai.</li>
+            <li><strong>Merge Sort:</strong> Iska time complexity O(n log n) hai, lekin yeh O(n) space use karta hai.</li>
+        </ul>
+        Yani agar hum performance analysis karein, toh Merge Sort zyada efficient hai large datasets ke liye.
+    </p>
+
+    <h3>Conclusion</h3>
+    <p>
+        Samajhna zaroori hai ki kis algorithm ka time aur space complexity aapke use case ke liye best hai. Har algorithm ka apna ek use case hota hai, isliye sahi algorithm ka chayan karna bahut important hai.
+    </p>
+</section>
+
+
+    <!-- Amortized Analysis Section -->
+<section id="amortized-analysis" class="content">
+    <h2>Amortized Analysis</h2>
+    <p>
+        Amortized Analysis ek aisi technique hai jisme hum kisi algorithm ka average time ya space complexity nikalte hain, jab kisi operation ki cost alag-alag hoti hai. Yaani, jab ek operation ka cost zyada hota hai aur doosre operations ka cost kam hota hai, toh hum average cost nikalte hain.
+    </p>
+
+    <h3>Example: Dynamic Array Insertion</h3>
+    <p>
+        Samajhte hain ek example se. Agar hum ek dynamic array mein elements insert kar rahe hain, toh kabhi kabhi hume array ko double karna padta hai jab array full ho jata hai. Ek operation mein, normally element ko O(1) time mein insert karte hain, lekin jab array full hota hai, hume pura array copy karke naya array banake O(n) time lagta hai. Amortized analysis mein hum ye dekhte hain ki on average har operation mein kitna time lagta hai.
+    </p>
+
+    <h3>Step-by-Step Analysis</h3>
+    <ul>
+        <li><strong>Normal Insertion:</strong> Har normal insert operation O(1) time leta hai.</li>
+        <li><strong>Doubling the Array:</strong> Jab array full hota hai, usko double karne mein O(n) time lagta hai. Yeh step har baar nahi hota, sirf jab array full hoti hai tab hota hai.</li>
+    </ul>
+
+    <p>
+        Ab yeh samajhne ke liye hum kehte hain ki humne n elements insert kiye. Total time complexity ko dekhte hain:
+    </p>
+
+    <div class="code">
+        Total Time = O(1) + O(2) + O(4) + ... + O(n) = O(2n) = O(n)
     </div>
 
-    <!-- Footer Section -->
-    <footer class="mt-6 text-center text-gray-600">
-        <p class="text-sm">Developed by Vaibhav Srivastav</p>
-        <p class="text-xs">&copy; 2024 Vaibhav Srivastav. All rights reserved.</p>
-    </footer>
+    <p>
+        Iska matlab yeh hai ki har insertion operation ka average time complexity O(1) hota hai, jab hum amortized analysis use karte hain. Matlab, ek costly operation ke baad kai saste operations hote hain, toh average cost low hoti hai.
+    </p>
+
+    <h3>Types of Amortized Analysis</h3>
+    <ul>
+        <li><strong>Aggregate Method:</strong> Is method mein hum overall operations ka total cost calculate karte hain aur usko total operations se divide karte hain. Jaise dynamic array ka example.</li>
+        <li><strong>Accounting Method:</strong> Is method mein hum har operation ke liye "charges" assign karte hain, aur kuch operations pe zyada charge lagate hain taaki future mein costly operations cover ho sakein.</li>
+        <li><strong>Potential Method:</strong> Ismein hum "potential energy" concept use karte hain, jisme hum future mein aane wale operations ka cost abhi se account karte hain.</li>
+    </ul>
+
+    <h3>Amortized vs Worst-Case Analysis</h3>
+    <p>
+        Amortized analysis ko hum worst-case analysis se alag dekhte hain. Worst-case analysis sirf sabse costly operation ka time dekhta hai, jabki amortized analysis average cost nikalta hai across all operations. Isliye kabhi kabhi amortized analysis useful hota hai jab har operation ka cost ek jaisa nahi hota.
+    </p>
+</section>
+<!-- Minimum Number of Comparisons Section -->
+<section id="min-max-comparisons" class="content">
+    <h2>Minimum Number of Comparisons to Find Min and Max of 100 Numbers</h2>
+    
+    <p>
+        Agar hum 100 numbers ka minimum aur maximum ek saath nikalna chahein, toh hum ek efficient tareeke se kaam kar sakte hain jisme hum zyada se zyada comparisons kam se kam karein.
+    </p>
+
+    <h3>Basic Approach</h3>
+    <p>
+        Sabse basic approach yeh hoti hai ki har number ke liye ek comparison kiya jaye minimum ke liye aur ek maximum ke liye. Toh agar hum har number ke liye 2 comparisons karte hain, toh:
+    </p>
+    
+    <div class="code">
+        2 comparisons × 100 numbers = 200 comparisons
+    </div>
+
+    <h3>Optimized Approach (Pair Comparison)</h3>
+    <p>
+        Lekin ek aur behtar tareeka yeh hai ki hum numbers ko pairs mein compare karein. Har pair ke liye hum pehle dono numbers ko compare karke pata karte hain kaunsa number bada hai aur kaunsa chhota, phir:
+    </p>
+    <ul>
+        <li>Bade number ko maximum ke saath compare karte hain.</li>
+        <li>Chhote number ko minimum ke saath compare karte hain.</li>
+    </ul>
+    
+    <p>
+        Isse hum comparisons ki sankhya ko kam kar sakte hain:
+    </p>
+    
+    <div class="code">
+        Number of comparisons ≈ 1.5 comparisons per number × 100 numbers = 150 comparisons
+    </div>
+
+    <p>
+        Yaani, hum is optimized approach mein sirf 150 comparisons karke minimum aur maximum find kar sakte hain, jo basic approach ke 200 comparisons se kaafi better hai.
+    </p>
+</section>
+<!-- Iteration Method Section -->
+<section id="iteration-method" class="content">
+    <h2>Iteration Method: Solving Recurrence Relations</h2>
+    
+    <p>
+        Hum do recurrence relations solve karenge using iteration method. Pehle relation ko hum ek ek step mein break karenge aur dekhenge iska solution kaise aata hai.
+    </p>
+
+    <h3>First Recurrence: T(n) = T(n-1) + 1/n</h3>
+    <p>
+        Yeh recurrence relation batata hai ki har step par hum pichle step se thoda thoda add karte hain. Hum ise expand karke likh sakte hain:
+    </p>
+
+    <div class="code">
+        T(n) = T(n-1) + 1/n<br>
+        T(n-1) = T(n-2) + 1/(n-1)<br>
+        T(n-2) = T(n-3) + 1/(n-2)<br>
+        ...
+    </div>
+
+    <p>
+        Is tarah se har step pe hum ek term add karte ja rahe hain, toh total mila ke humara solution hoga:
+    </p>
+
+    <div class="code">
+        T(n) = T(1) + 1/2 + 1/3 + ... + 1/n
+    </div>
+
+    <p>
+        Yeh harmonic series hai, jiska approximate solution hota hai O(log n). Isliye is recurrence ka solution hai:
+    </p>
+
+    <div class="code">
+        T(n) = O(log n)
+    </div>
+
+    <h3>Second Recurrence: T(n) = T(n/3) + n^(4/3)</h3>
+    <p>
+        Ab doosri recurrence relation ko solve karte hain. Isme hum T(n) ko T(n/3) pe depend kar rahe hain, toh isko bhi expand karte hain:
+    </p>
+
+    <div class="code">
+        T(n) = T(n/3) + n^(4/3)<br>
+        T(n/3) = T(n/9) + (n/3)^(4/3)<br>
+        T(n/9) = T(n/27) + (n/9)^(4/3)<br>
+        ...
+    </div>
+
+    <p>
+        Is tarah har step pe hum n^(4/3) term add karte ja rahe hain. Har baar n ko 1/3 se divide kar rahe hain. Total terms jo add honge wo honge log<sub>3</sub>(n).
+    </p>
+
+    <p>
+        Har term ka size n^(4/3) se chhota hota hai, toh total complexity hogi:
+    </p>
+
+    <div class="code">
+        T(n) = O(n^(4/3))
+    </div>
+
+    <p>
+        Isliye second recurrence ka solution n^(4/3) time complexity ke barabar hota hai.
+    </p>
+</section>
+<!-- Master's Theorem Section -->
+<section id="masters-theorem" class="content">
+    <h2>Master’s Theorem: Solving Recurrence Relations</h2>
+
+    <p>
+        Master’s Theorem ek powerful tool hai jo hum complex recurrence relations ko solve karne ke liye use karte hain. Chalo ab do recurrence relations ko solve karte hain using Master’s Theorem.
+    </p>
+
+    <h3>Master’s Theorem Basics</h3>
+    <p>
+        Recurrence relation jo Master’s Theorem se solve hota hai, wo is form mein hota hai:
+    </p>
+    <div class="code">
+        T(n) = aT(n/b) + f(n)
+    </div>
+
+    <p>
+        Yaha:
+        <ul>
+            <li><strong>a:</strong> Recursive calls ka number hai.</li>
+            <li><strong>b:</strong> Input ka size har call pe kitna divide hota hai.</li>
+            <li><strong>f(n):</strong> Non-recursive part hai jo har level pe kaam hota hai.</li>
+        </ul>
+    </p>
+
+    <h3>Steps to Solve</h3>
+    <p>
+        Master's theorem ko use karne ke liye humein pehle dekhna hota hai ki a, b, aur f(n) kya hai. Phir hum compare karte hain n^log<sub>b</sub>(a) aur f(n) ke beech teen cases ke through.
+    </p>
+
+    <h3>First Recurrence: T(n) = 3T(n/4) + n*log(n)</h3>
+
+    <p>
+        Hum isko compare karte hain Master's Theorem ke form se:
+    </p>
+
+    <div class="code">
+        a = 3, b = 4, f(n) = n*log(n)
+    </div>
+
+    <p>
+        Ab hum calculate karte hain n^log<sub>b</sub>(a):
+    </p>
+
+    <div class="code">
+        n^log<sub>4</sub>(3)
+    </div>
+
+    <p>
+        <strong>Step 1:</strong> Calculate n^log<sub>4</sub>(3). Ye approximately n^0.793 ke barabar hoga.<br>
+        <strong>Step 2:</strong> Compare f(n) = n*log(n) aur n^0.793:
+    </p>
+
+    <p>
+        Yaha f(n) grow kar raha hai n^log<sub>b</sub>(a) se tez, kyunki n*log(n) > n^0.793. Iska matlab hai hum <strong>Case 3</strong> mein hain.
+    </p>
+
+    <p>
+        Isliye iska solution hota hai:
+    </p>
+
+    <div class="code">
+        T(n) = O(n*log(n))
+    </div>
+
+    <h3>Second Recurrence: T(n) = 9T(n/3) + n</h3>
+
+    <p>
+        Hum ise bhi Master's Theorem se solve karte hain:
+    </p>
+
+    <div class="code">
+        a = 9, b = 3, f(n) = n
+    </div>
+
+    <p>
+        Calculate karte hain n^log<sub>b</sub>(a):
+    </p>
+
+    <div class="code">
+        n^log<sub>3</sub>(9) = n^2
+    </div>
+
+    <p>
+        <strong>Step 1:</strong> Compare f(n) = n aur n^2.<br>
+        <strong>Step 2:</strong> Yaha n^2 f(n) se bada hai, toh hum <strong>Case 1</strong> mein hain.
+    </p>
+
+    <p>
+        Iska matlab solution hai:
+    </p>
+
+    <div class="code">
+        T(n) = O(n^2)
+    </div>
+
+    <p>
+        Is tarah se hum dono recurrence relations ko easily solve kar sakte hain using Master’s Theorem.
+    </p>
+</section>
+<!-- Recursion Tree Section -->
+<section id="recursion-tree" class="content">
+    <h2>Recursion Tree Method</h2>
+
+    <p>
+        Recursion Tree ek aasan method hai jisme hum recurrence relation ka solution graphically samajhte hain. Har recursive call ko ek tree ka branch samajhte hain. Har level pe kaam ka cost nikalte hain aur total cost ko sum karte hain.
+    </p>
+
+    <h3>Example 1: T(n) = 4T(n/2) + n</h3>
+
+    <p>
+        Isme hum dekhte hain ki pehle level pe cost <strong>n</strong> hai. Har recursive call 4 parts mein divide hoti hai aur size <strong>n/2</strong> ho jata hai.
+    </p>
+
+    <ul>
+        <li>Level 0: Cost = n</li>
+        <li>Level 1: 4 calls, har call ka size n/2, toh total cost = 4*(n/2) = 2n</li>
+        <li>Level 2: 4^2 calls, har call ka size n/4, toh total cost = 4^2*(n/4) = 4n</li>
+    </ul>
+
+    <p>
+        Is tarah, har level pe cost badhti ja rahi hai. Last level pe recursive calls size 1 ho jayengi, toh recursion khatam ho jayega.
+    </p>
+
+    <p>
+        Total cost ka sum: <strong>n + 2n + 4n + ...</strong> = O(n log n).
+    </p>
+
+    <h3>Example 2: T(n) = 16T(n/4) + n</h3>
+
+    <p>
+        Yaha pe pehla level ka cost n hai. Har recursive call 16 parts mein divide hoti hai aur size <strong>n/4</strong> ho jata hai.
+    </p>
+
+    <ul>
+        <li>Level 0: Cost = n</li>
+        <li>Level 1: 16 calls, har call ka size n/4, toh total cost = 16*(n/4) = 4n</li>
+        <li>Level 2: 16^2 calls, har call ka size n/16, toh total cost = 16^2*(n/16) = 16n</li>
+    </ul>
+
+    <p>
+        Total cost ka sum: <strong>n + 4n + 16n + ...</strong> = O(n^2).
+    </p>
+
+    <p>
+        Recursion tree method se hum har level ka cost nikalte hain aur total ka sum karke final time complexity estimate karte hain.
+    </p>
+</section>
+<!-- Divide and Conquer Section -->
+<section id="d-and-c" class="content">
+    <h2>Maximum and Minimum Using Divide and Conquer</h2>
+    <p>
+        Divide and Conquer approach mein, hum array ko do parts mein divide karte hain aur har part ka maximum aur minimum find karte hain. 
+        Fir in do results ko combine karke overall maximum aur minimum nikalte hain.
+    </p>
+
+    <h3>Example List</h3>
+    <p>
+        Diye gaye numbers hain: <strong>[15, 89, 53, 78, 45, 6, 9, 36, 72, 19, 66, 49]</strong>
+    </p>
+
+    <h3>Steps</h3>
+    <ol>
+        <li>List ko do halves mein divide karo: [15, 89, 53, 78, 45] aur [6, 9, 36, 72, 19, 66, 49]</li>
+        <li>Har half ka maximum aur minimum find karo:</li>
+        <ul>
+            <li>First half: Maximum = 89, Minimum = 15</li>
+            <li>Second half: Maximum = 72, Minimum = 6</li>
+        </ul>
+        <li>Overall maximum = max(89, 72) = 89</li>
+        <li>Overall minimum = min(15, 6) = 6</li>
+    </ol>
+
+    <p>
+        Is tarah, D&C approach se humein overall maximum 89 aur minimum 6 milte hain.
+    </p>
+</section>
+
+<!-- Algorithm Comparison Section -->
+<section id="algorithm-comparison" class="content">
+    <h2>Algorithm Comparison: A vs B</h2>
+    <p>
+        Algorithm A ki time complexity O(n²) hai aur Algorithm B ki O(n log n) hai. Agar input size 1000 hai, 
+        toh hum Algorithm B choose karenge kyunki iska time complexity zyada efficient hai.
+    </p>
+
+    <h3>Explanation</h3>
+    <p>
+        O(n²) ka matlab hai ki agar aapke paas 1000 elements hain, toh maximum comparisons 1000 × 1000 = 1,000,000 honge. 
+        Lekin O(n log n) ke liye, 1000 ke liye log(1000) approximately 10 hota hai, toh total operations around 10,000 honge. 
+        Matlab Algorithm B zyada fast aur efficient hai.
+    </p>
+</section>
+
+<!-- Sorting Algorithms Section -->
+<section id="sorting-algorithms" class="content">
+    <h2>Sorting Algorithms: Selection Sort vs Insertion Sort</h2>
+    <p>
+        Chaliye ab hum Selection Sort aur Insertion Sort ka step-by-step analysis karte hain given list par:
+        <strong>[38, 27, 43, 3, 9, 82, 10]</strong>
+    </p>
+
+    <h3>Selection Sort</h3>
+    <p>
+        Selection Sort mein, hum sabse chhoti value ko dhoondte hain aur use list ke starting position par swap karte hain. 
+        Yeh process list ke har element ke liye repeat hota hai.
+    </p>
+    <h4>Steps:</h4>
+    <ol>
+        <li>List: [38, 27, 43, 3, 9, 82, 10]</li>
+        <li>Find minimum (3) and swap with first: [3, 27, 43, 38, 9, 82, 10]</li>
+        <li>Next, find minimum (9) and swap with second: [3, 9, 43, 38, 27, 82, 10]</li>
+        <li>Continue this until sorted: Final sorted list = [3, 9, 10, 27, 38, 43, 82]</li>
+    </ol>
+
+    <h3>Insertion Sort</h3>
+    <p>
+        Insertion Sort mein, hum list ko do parts mein divide karte hain: sorted aur unsorted. 
+        Hum ek ek karke unsorted part se elements ko sorted part mein insert karte hain.
+    </p>
+    <h4>Steps:</h4>
+    <ol>
+        <li>Start with the first element (38): Sorted = [38]</li>
+        <li>Insert 27: [27, 38]</li>
+        <li>Insert 43: [27, 38, 43]</li>
+        <li>Insert 3: [3, 27, 38, 43]</li>
+        <li>Continue inserting: Final sorted list = [3, 9, 10, 27, 38, 43, 82]</li>
+    </ol>
+</section>
+
+
+
+
+
 </body>
+
+
+    <script>
+    function toggleMenu() {
+        const navList = document.querySelector('.nav-list');
+        navList.classList.toggle('show');
+    }
+</script>
+
 </html>
