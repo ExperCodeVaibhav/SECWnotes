@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+<!-- Navigation Menu for Unit 2 -->
+<nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="text-white text-lg font-bold mb-2 md:mb-0">Unit 2 Topics</div>
+        <div class="flex flex-wrap space-x-0 md:space-x-4">
+            <a href="#huffman-coding" class="text-gray-300 hover:text-white py-2">Huffman Coding</a>
+            <a href="#knapsack-01" class="text-gray-300 hover:text-white py-2">0/1 Knapsack Problem</a>
+            <a href="#fractional-knapsack" class="text-gray-300 hover:text-white py-2">Fractional Knapsack Problem</a>
+            <a href="#lcs" class="text-gray-300 hover:text-white py-2">Longest Common Subsequence</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Questions Section -->
+<section class="questions mt-8 px-4">
+    <h2 class="text-xl font-bold text-center">Questions</h2>
+    <ul class="list-disc list-inside text-gray-700 mx-auto w-full md:w-1/2">
+        <li><a href="#huffman-coding" class="text-blue-500 hover:underline">1. Explain the key concept behind Huffman coding briefly and illustrate the construction of a Huffman tree for given character frequencies.</a></li>
+        <li><a href="#longest-common-subsequence" class="text-blue-500 hover:underline">2. Using dynamic programming, find the length of the Longest Common Subsequence (LCS) between the strings 'AGGTAB' and 'GXTXAYB'.</a></li>
+        <li><a href="#fractional-knapsack" class="text-blue-500 hover:underline">3. Explain the Fractional Knapsack Problem and the Greedy Algorithm used to solve it. Determine the optimal selection of items for a given set.</a></li>
+        <li><a href="#knapsack-01" class="text-blue-500 hover:underline">4. Explain the 0/1 Knapsack Problem and determine the optimal selection of items for a given set.</a></li>
+    </ul>
+</section>
+
+
+
+
+    <!-- Huffman Coding Section -->
+<section id="huffman-coding" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Huffman Coding</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <p class="mb-4">
+            Huffman coding ek data compression technique hai jise kisi data ko compress karne ke liye use kiya jata hai. Iska main objective hota hai ki data ka size chhota karna, taaki storage aur transmission mein space aur time bach sake.
+        </p>
+        
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Huffman Coding Kaise Kaam Karta Hai?</h3>
+        <ol class="list-decimal list-inside mb-4">
+            <li><strong>Character Frequency:</strong> Pehle hum dekhte hain ki har character (letter, number, symbol) ka kitna frequency hai.</li>
+            <li><strong>Build the Tree:</strong> Ab hum ek Huffman Tree banate hain. Is tree mein, har character ko ek binary code diya jata hai.</li>
+            <li><strong>Create Codes:</strong> Tree ko read karte hue, left jaane par <code>0</code> aur right jaane par <code>1</code> assign karte hain.</li>
+            <li><strong>Encoding:</strong> Jab hume data ko encode karna hota hai, hum characters ko unke corresponding binary codes se replace karte hain.</li>
+            <li><strong>Decoding:</strong> Jab hume data ko decode karna hota hai, hum binary codes ko read karte hain aur unhe original characters mein convert karte hain.</li>
+        </ol>
+        
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
+        <p class="mb-4">
+            Agar humara input string hai "aabcc", toh Huffman coding se hume mil sakta hai:
+            <ul class="list-disc list-inside mb-4">
+                <li>a: <strong>0</strong></li>
+                <li>b: <strong>10</strong></li>
+                <li>c: <strong>11</strong></li>
+            </ul>
+            Encoded string: <code class="font-mono">001011</code>
+        </p>
+    </div>
+</section>
+
+<!-- 0/1 Knapsack Section -->
+<section id="knapsack-01" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">0/1 Knapsack Problem</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <p class="mb-4">
+            0/1 Knapsack Problem ek famous optimization problem hai jisme hume kuch items diye jate hain, jinke weights aur values hoti hain. Hume in items ko ek knapsack (bag) mein rakhna hota hai taaki total value maximize ho, lekin knapsack ki capacity limited hoti hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
+        <p class="mb-4">
+            Maan lijiye, hume 3 items diye gaye hain:
+            <ul class="list-disc list-inside mb-4">
+                <li>Item 1: Weight = 1, Value = 1</li>
+                <li>Item 2: Weight = 3, Value = 4</li>
+                <li>Item 3: Weight = 4, Value = 5</li>
+            </ul>
+            Aur humare knapsack ki capacity hai 4.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Solution:</h3>
+        <p class="mb-4">
+            Is problem ka solution hum dynamic programming se nikalte hain. 
+            <br>
+            Sabse pehle hum ek 2D array banate hain jisme rows items ke liye aur columns knapsack ki capacity ke liye honge.
+        </p>
+
+        <div class="code mb-4">
+            <code>
+                T[i][w] = max(T[i-1][w], T[i-1][w-weight[i]] + value[i])
+            </code>
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Final Output:</h3>
+        <p class="mb-4">
+            Aakhir mein, maximum value hoga 6, jo ki item 2 aur item 3 ko lene se milta hai.
+        </p>
+    </div>
+</section>
+
+<!-- Fractional Knapsack Section -->
+<section id="fractional-knapsack" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Fractional Knapsack Problem</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <p class="mb-4">
+            Fractional Knapsack Problem mein hume items ko fraction (hisso) mein lene ki permission hoti hai. Yani agar hume kisi item ka pura weight nahi le sakte, toh hum uska kuch hissa le sakte hain.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
+        <p class="mb-4">
+            Maan lijiye, hume 3 items diye gaye hain:
+            <ul class="list-disc list-inside mb-4">
+                <li>Item 1: Weight = 10, Value = 60</li>
+                <li>Item 2: Weight = 20, Value = 100</li>
+                <li>Item 3: Weight = 30, Value = 120</li>
+            </ul>
+            Aur humare knapsack ki capacity hai 50.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Solution:</h3>
+        <p class="mb-4">
+            Pehle, items ko unki value-to-weight ratio ke hisaab se sort karte hain:
+            <ul class="list-disc list-inside mb-4">
+                <li>Item 1: 60/10 = 6</li>
+                <li>Item 2: 100/20 = 5</li>
+                <li>Item 3: 120/30 = 4</li>
+            </ul>
+            Toh, hume item 1 aur item 2 pura lena hai, aur item 3 ka kuch hissa lena padega.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Final Output:</h3>
+        <p class="mb-4">
+            Maximum value hoga 240, jo item 1, item 2, aur item 3 ka 16.67 (1/3) hissa lene se milta hai.
+        </p>
+    </div>
+</section>
+
+<!-- Longest Common Subsequence Section -->
+<section id="lcs" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Longest Common Subsequence (LCS)</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <p class="mb-4">
+            Longest Common Subsequence (LCS) ek algorithm hai jo do sequences mein common elements ka sabse lamba subsequence dhoondta hai. Yeh subsequence zaroori nahi hai ki contiguous (saath-sath) ho, lekin order wahi rehna chahiye.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
+        <p class="mb-4">
+            Maan lijiye, hume do strings diye gaye hain: <code class="font-mono">"ABCBDAB"</code> aur <code class="font-mono">"BDCAB"</code>.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Solution:</h3>
+        <p class="mb-4">
+            Iska LCS "BCAB" hoga. 
+            <br>
+            Hum is problem ko dynamic programming se solve karte hain. Sabse pehle hum ek 2D array banate hain jisme rows pe first string aur columns pe second string hote hain.
+        </p>
+
+        <div class="code mb-4">
+            <code>
+                If s1[i] == s2[j] then LCS[i][j] = LCS[i-1][j-1] + 1
+                Else LCS[i][j] = max(LCS[i-1][j], LCS[i][j-1])
+            </code>
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Final Output:</h3>
+        <p class="mb-4">
+            Is example ka LCS length 4 hai, jo ki "BCAB" ko represent karta hai.
+        </p>
+    </div>
+</section>
+
+<!-- Huffman Coding Section -->
+<section id="huffman-coding" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Huffman Coding</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <p class="mb-4">
+            Huffman coding ek lossless data compression technique hai. Iska main concept yeh hai ki hum frequently used characters ko shorter codes assign karte hain, jabki less frequently used characters ko longer codes assign karte hain. Isse overall data size kam hota hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example Character Frequencies:</h3>
+        <ul class="list-disc list-inside mb-4">
+            <li>A: 5</li>
+            <li>B: 7</li>
+            <li>C: 10</li>
+            <li>D: 15</li>
+            <li>E: 20</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Huffman Tree Construction:</h3>
+        <p class="mb-4">
+            Huffman tree banane ke liye hume ye steps follow karne hote hain:
+        </p>
+        <ol class="list-decimal list-inside mb-4">
+            <li>Sabse pehle, sabhi characters ko unki frequencies ke saath ek priority queue mein rakhna hota hai.</li>
+            <li>Phir hum do sabse chhoti frequencies wale nodes ko choose karte hain, unhe combine karte hain ek new node mein, jiska frequency dono ka sum hota hai.</li>
+            <li>Is new node ko queue mein daal dete hain.</li>
+            <li>Yeh process tab tak repeat karte hain jab tak sirf ek node nahi bach jata, jo ki root node hoti hai.</li>
+        </ol>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Step-by-Step Construction:</h3>
+        <p class="mb-4">
+            1. Start with individual frequencies:
+            <br>
+            A: 5, B: 7, C: 10, D: 15, E: 20
+        </p>
+        <p class="mb-4">
+            2. Combine A and B (5 + 7 = 12):
+            <br>
+            New Node (AB): 12, C: 10, D: 15, E: 20
+        </p>
+        <p class="mb-4">
+            3. Combine C and (AB) (10 + 12 = 22):
+            <br>
+            New Node (CAB): 22, D: 15, E: 20
+        </p>
+        <p class="mb-4">
+            4. Combine D and E:
+            <br>
+            New Node (DE): 35
+        </p>
+        <p class="mb-4">
+            5. Finally, combine (CAB) and (DE) to form the root node:
+            <br>
+            New Node (CABDE): 57
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Final Huffman Codes:</h3>
+        <p class="mb-4">
+            Is tarah se codes assign kiye jaate hain:
+            <ul class="list-disc list-inside mb-4">
+                <li>A: 00</li>
+                <li>B: 01</li>
+                <li>C: 10</li>
+                <li>D: 110</li>
+                <li>E: 111</li>
+            </ul>
+        </p>
+
+        <p class="mb-4">
+            Isliye, Huffman coding se hume efficient aur compact representation milta hai, jo data compression mein madadgar hota hai.
+        </p>
+    </div>
+</section>
+
+<!-- Longest Common Subsequence (LCS) Section -->
+<section id="longest-common-subsequence" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Longest Common Subsequence (LCS)</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <p class="mb-4">
+            Longest Common Subsequence (LCS) do strings ke beech ka wo subsequence hai jo dono strings mein common hota hai aur uski length maximum hoti hai. Yeh zaroori nahi ki characters consecutive hon, lekin unka order maintain hona chahiye.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example Strings:</h3>
+        <p class="mb-4">
+            <strong>String 1:</strong> 'AGGTAB'
+            <br>
+            <strong>String 2:</strong> 'GXTXAYB'
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Dynamic Programming Approach:</h3>
+        <p class="mb-4">
+            Is problem ko solve karne ke liye hum dynamic programming ka istemal karte hain. Ismein hum ek 2D array banate hain jisme rows String 1 ke characters ko aur columns String 2 ke characters ko represent karte hain.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Steps to Solve:</h3>
+        <ol class="list-decimal list-inside mb-4">
+            <li>Ek 2D array `dp` banate hain jiska size (m+1) x (n+1) hai, jahan m aur n dono strings ki lengths hain.</li>
+            <li>Array ko 0 se initialize karte hain. <strong>dp[i][j]</strong> ka matlab hai LCS ki length pehle i characters of String 1 aur pehle j characters of String 2 ke liye.</li>
+            <li>Agar characters match karte hain, toh <strong>dp[i][j] = dp[i-1][j-1] + 1</strong> (pichle LCS mein 1 add karte hain).</li>
+            <li>Agar characters match nahi karte hain, toh <strong>dp[i][j] = max(dp[i-1][j], dp[i][j-1])</strong> (ya toh pichla row ya column ka value lete hain).</li>
+            <li>Finally, <strong>dp[m][n]</strong> mein LCS ki length hoti hai.</li>
+        </ol>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Code Implementation:</h3>
+        <pre class="bg-gray-200 p-4 rounded">
+<code>
+def lcs(X, Y):
+    m = len(X)
+    n = len(Y)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if X[i - 1] == Y[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+
+    return dp[m][n]
+
+# Example Usage
+X = "AGGTAB"
+Y = "GXTXAYB"
+print("Length of LCS is", lcs(X, Y))
+</code>
+        </pre>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Final Result:</h3>
+        <p class="mb-4">
+            Is example ke liye, LCS ki length 4 hai aur wo subsequence hai 'GTAB'.
+        </p>
+    </div>
+</section>
+
+<!-- Fractional Knapsack Problem Section -->
+<section id="fractional-knapsackp" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Fractional Knapsack Problem</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">(a) Fractional Knapsack Problem and Greedy Algorithm</h3>
+        <p class="mb-4">
+            Fractional Knapsack Problem ek aisa problem hai jisme aapko kuch items diye jaate hain, jinmein har item ka weight aur value hota hai. Aapko in items ko knapsack (bag) mein is tarah se pack karna hai ki total value maximum ho, lekin bag ki capacity ko exceed na karein. Is problem mein aap items ke fractions bhi le sakte hain, yani agar aapko poora item nahi rakhna hai toh uska kuch hissa bhi le sakte hain.
+        </p>
+        
+        <p class="mb-4">
+            Is problem ko solve karne ke liye Greedy Algorithm ka istemal hota hai. Greedy Algorithm har step par wo choice karti hai jo immediate benefit deti hai. Yani, har bar aapko wo item lena hota hai jiska value-to-weight ratio sabse zyada hota hai.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">(b) Example with Item Weights and Values</h3>
+        <p class="mb-4">
+            Maan lijiye hume niche diye gaye items hain:
+        </p>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 mb-4">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-300 px-4 py-2">Item</th>
+                        <th class="border border-gray-300 px-4 py-2">Weight (W)</th>
+                        <th class="border border-gray-300 px-4 py-2">Value (V)</th>
+                        <th class="border border-gray-300 px-4 py-2">Value/Weight Ratio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">1</td>
+                        <td class="border border-gray-300 px-4 py-2">2</td>
+                        <td class="border border-gray-300 px-4 py-2">10</td>
+                        <td class="border border-gray-300 px-4 py-2">5</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">2</td>
+                        <td class="border border-gray-300 px-4 py-2">3</td>
+                        <td class="border border-gray-300 px-4 py-2">5</td>
+                        <td class="border border-gray-300 px-4 py-2">1.67</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">3</td>
+                        <td class="border border-gray-300 px-4 py-2">5</td>
+                        <td class="border border-gray-300 px-4 py-2">15</td>
+                        <td class="border border-gray-300 px-4 py-2">3</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">4</td>
+                        <td class="border border-gray-300 px-4 py-2">7</td>
+                        <td class="border border-gray-300 px-4 py-2">1</td>
+                        <td class="border border-gray-300 px-4 py-2">0.14</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">5</td>
+                        <td class="border border-gray-300 px-4 py-2">7</td>
+                        <td class="border border-gray-300 px-4 py-2">6</td>
+                        <td class="border border-gray-300 px-4 py-2">0.86</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="mb-4">
+            Humara goal hai maximum total value hasil karna jab bag ki capacity 10 units ho.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Step-by-Step Calculations:</h3>
+        <ol class="list-decimal list-inside mb-4">
+            <li>Items ko unke value-to-weight ratio ke hisaab se arrange karte hain (descending order):</li>
+            <li>Item 1: 2W, 10V (Ratio = 5) - Total Weight = 2, Total Value = 10</li>
+            <li>Item 3: 5W, 15V (Ratio = 3) - Total Weight = 7, Total Value = 25</li>
+            <li>Item 2: 3W, 5V (Ratio = 1.67) - Total Weight = 10, Total Value = 30</li>
+        </ol>
+
+        <p class="mb-4">
+            Ab, hum bag ki total capacity 10 units hai, toh hum items ko is tarah se select karte hain:
+        </p>
+
+        <ul class="list-disc list-inside mb-4">
+            <li>Item 1 ko pura lete hain (Weight = 2, Value = 10)</li>
+            <li>Item 3 ko pura lete hain (Weight = 5, Value = 15)</li>
+            <li>Item 2 ko pura lete hain (Weight = 3, Value = 5)</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Final Selection:</h3>
+        <p class="mb-4">
+            Humare pass total weight 10 units hai aur total value 30 hai. Isliye optimal selection hai:
+        </p>
+        <ul class="list-disc list-inside mb-4">
+            <li>Item 1: Weight = 2, Value = 10</li>
+            <li>Item 3: Weight = 5, Value = 15</li>
+            <li>Item 2: Weight = 3, Value = 5</li>
+        </ul>
+        <p class="mb-4 font-bold">
+            Total Value: 10 + 15 + 5 = 30
+        </p>
+    </div>
+</section>
+
+<!-- 0/1 Knapsack Problem Section -->
+<section id="knapsack-01p" class="content p-6 bg-gray-100">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">0/1 Knapsack Problem</h2>
+    
+    <div class="max-w-2xl mx-auto text-lg text-gray-700">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">(a) Problem Statement and Significance</h3>
+        <p class="mb-4">
+            0/1 Knapsack Problem ek classic problem hai jo decision-making aur optimization mein use hoti hai. Is problem mein aapko kuch items diye jaate hain, jinka specific weight aur value hota hai. Aapko ek knapsack (bag) diya jaata hai jismein aapko items ko is tarah se pack karna hai ki total weight knapsack ki capacity se zyada na ho, aur total value maximum ho.
+        </p>
+        
+        <p class="mb-4">
+            Is problem ki significance yeh hai ki yeh real-life scenarios mein kaam aati hai, jaise resource allocation, budget management, aur logistics. 
+        </p>
+
+        <p class="mb-4">
+            Is problem ko solve karne mein kuch challenges hain:
+        </p>
+        <ul class="list-disc list-inside mb-4">
+            <li>Aapko decide karna hota hai ki kaunsa item lena hai aur kaunsa nahi.</li>
+            <li>Items ko fractions mein nahi liya ja sakta, yaani aap poora item ya kuch nahi le sakte hain.</li>
+            <li>Problem ki computational complexity high hoti hai, jo isse solve karna mushkil bana deti hai.</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">(b) Example with Item Weights and Values</h3>
+        <p class="mb-4">
+            Maan lijiye hume niche diye gaye items hain:
+        </p>
+        <div class="overflow-x-auto">
+
+</body>
+</html>
