@@ -37,95 +37,16 @@
             color: #ff6f61;
         }
 
-        body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    header {
-        background-color: #333;
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    .logo h1 {
-        margin: 0;
-    }
-
-    nav {
-        position: relative;
-    }
-
-    .nav-list {
-        list-style-type: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-list li {
-        margin: 0 15px;
-    }
-
-    .nav-list a {
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .nav-list a:hover {
-        color: #ff6347; /* Change color on hover */
-    }
-
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-    }
-
-    .line {
-        height: 3px;
-        width: 25px;
-        background: white;
-        margin: 3px 0;
-    }
-
-    @media (max-width: 768px) {
-        .nav-list {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 50px;
-            right: 20px;
-            background-color: #333;
-            border-radius: 5px;
-            width: 200px;
-        }
-
-        .nav-list.show {
-            display: flex;
-        }
-
-        .hamburger {
-            display: flex;
-        }
-    }
-
+        
     </style>
 </head>
 <body>
 
     <!-- Header with Navigation Links -->
-<!-- Header with Responsive Navigation Menu -->
 <header>
-    <div class="logo">
-        <h1>Algorithm Analysis</h1>
-    </div>
+    <h1>Algorithm Analysis Topics</h1>
     <nav>
-        <ul class="nav-list">
+        <ul>
             <li><a href="#time-space-complexity">Time and Space Complexity</a></li>
             <li><a href="#amortized-analysis">Amortized Analysis</a></li>
             <li><a href="#min-max-comparisons">Min and Max Comparisons</a></li>
@@ -135,11 +56,6 @@
             <li><a href="#algorithm-comparison">Algorithm Comparison</a></li>
             <li><a href="#sorting-algorithms">Sorting Algorithms</a></li>
         </ul>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
     </nav>
 </header>
 
@@ -576,12 +492,12 @@
 
 </body>
 
-<script>
+
     <script>
     function toggleMenu() {
         const navList = document.querySelector('.nav-list');
         navList.classList.toggle('show');
     }
 </script>
-</script>
+
 </html>
