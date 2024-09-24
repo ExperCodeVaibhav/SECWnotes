@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Languages and Automata</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 fixed top-0 w-full shadow-lg z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-white text-xl font-bold">Regular Language Topics</h1>
+      <ul class="flex space-x-4 text-white">
+        <li><a href="#regular-grammars" class="hover:underline">Regular Grammars</a></li>
+        <li><a href="#regular-expressions" class="hover:underline">Regular Expressions</a></li>
+        <li><a href="#equivalence" class="hover:underline">Equivalence of Languages</a></li>
+        <li><a href="#properties" class="hover:underline">Properties</a></li>
+        <li><a href="#pumping-lemma" class="hover:underline">Pumping Lemma</a></li>
+        <li><a href="#dfa-regex" class="hover:underline">DFA & Regex</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto mt-20 p-4 space-y-12">
+    
+    <!-- Section 1: Regular Grammars -->
+    <section id="regular-grammars" class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">1. Regular Grammars</h2>
+      <p class="text-gray-600 mb-4">
+        Regular grammar ek aisa set of rules hota hai jo regular languages ko define karta hai. Yeh do tarike ke hoti hain: **Right Linear Grammar** aur **Left Linear Grammar**.
+      </p>
+      <p class="text-gray-600 mb-4">
+        **Right Linear Grammar (RLG):** Isme non-terminal symbol hammesha right side par hota hai, jaise:
+        <br>
+        Example: A → aB | b
+      </p>
+      <p class="text-gray-600 mb-4">
+        **Left Linear Grammar (LLG):** Isme non-terminal symbol hammesha left side par hota hai, jaise:
+        <br>
+        Example: A → Ba | a
+      </p>
+      <p class="text-gray-600">
+        Dono grammars regular languages ko define karte hain, lekin RLG zyada common hoti hai.
+      </p>
+    </section>
+
+    <!-- Section 2: Regular Expressions -->
+    <section id="regular-expressions" class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">2. Regular Expressions</h2>
+      <p class="text-gray-600 mb-4">
+        Regular Expressions (RE) ek aisi notation hai jo regular languages ko represent karti hai. Yeh ek tarah se string patterns ko describe karti hai.
+      </p>
+      <p class="text-gray-600 mb-4">
+        Example: Σ = {a, b} ke liye ek regular expression jo 'a' se shuru hoti ho aur koi bhi sequence ho sakta hai:
+        <br>
+        **Regular Expression:** <code>a(a|b)*</code>
+      </p>
+      <p class="text-gray-600">
+        Is expression ka matlab hai ki string 'a' se shuru hogi aur uske baad koi bhi combination ho sakta hai 'a' aur 'b' ka.
+      </p>
+    </section>
+
+    <!-- Section 3: Equivalence Between Regular Languages -->
+    <section id="equivalence" class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">3. Equivalence Between Regular Languages</h2>
+      <p class="text-gray-600 mb-4">
+        Do regular languages tab equivalent kehlati hain jab dono same set of strings ko generate karein. 
+      </p>
+      <p class="text-gray-600 mb-4">
+        Example: 
+        <br>
+        **L1:** (ab + ba)*
+        <br>
+        **L2:** (a + b)*
+      </p>
+      <p class="text-gray-600">
+        Yaha par L1 aur L2 equivalent nahi hain kyunki L2 saari possible strings generate karta hai, lekin L1 sirf specific sequences generate karta hai.
+      </p>
+    </section>
+
+    <!-- Section 4: Properties of Regular Languages -->
+    <section id="properties" class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">4. Properties of Regular Languages</h2>
+      <p class="text-gray-600 mb-4">
+        Regular languages kuch important properties ko follow karti hain:
+      </p>
+      <ul class="list-disc pl-5 text-gray-600 mb-4">
+        <li>**Closure Property:** Regular languages union, intersection, complement, aur concatenation par closed hoti hain.</li>
+        <li>**Decidability:** Regular languages ke liye sabhi algorithms (jaise DFA banane ke liye) decide kiye ja sakte hain.</li>
+        <li>**Finite Automata Representation:** Regular languages ko DFA se represent kiya ja sakta hai.</li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Pumping Lemma -->
+    <section id="pumping-lemma" class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">5. Pumping Lemma</h2>
+      <p class="text-gray-600 mb-4">
+        Pumping lemma ek tarika hai jo yeh prove karta hai ki koi language regular nahi hai.
+      </p>
+      <p class="text-gray-600 mb-4">
+        **Pumping Lemma:** Agar ek language regular hai, toh usme har ek string jo sufficient length ki hai, usme ek portion (substring) aisa hoga jise hum repeat kar sakein aur string ab bhi language me hogi.
+      </p>
+      <p class="text-gray-600">
+        Agar koi string pumping lemma ke according nahi hoti, toh wo language regular nahi hai.
+      </p>
+    </section>
+
+    <!-- Section 6: Relationship Between DFA and Regular Expressions -->
+    <section id="dfa-regex" class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">6. Relationship Between DFA and Regular Expressions</h2>
+      <p class="text-gray-600 mb-4">
+        Regular languages ko DFA (Deterministic Finite Automata) aur regular expressions dono se represent kiya ja sakta hai. 
+      </p>
+      <p class="text-gray-600 mb-4">
+        **DFA:** Ek finite state machine hota hai jo input strings ko accept ya reject karta hai based on transitions between states.
+      </p>
+      <p class="text-gray-600 mb-4">
+        **Regular Expressions:** Ek notation hai jo strings ke pattern ko define karta hai.
+      </p>
+      <p class="text-gray-600">
+        DFA aur regular expressions dono regular languages ko represent karte hain, aur kisi DFA ka equivalent regular expression hota hai, aur vice versa.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 p-4 text-center text-white mt-8">
+    <p>&copy; 2024 Regular Languages and Automata Tutorial</p>
+  </footer>
+
+</body>
+</html>
