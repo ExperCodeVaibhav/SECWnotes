@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regular Languages and Automata</title>
+  <title>Regular Language Topics</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Smooth Scroll */
@@ -18,7 +18,14 @@
   <nav class="bg-blue-600 p-4 fixed top-0 w-full shadow-lg z-50">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-white text-xl font-bold">Regular Language Topics</h1>
-      <ul class="flex space-x-4 text-white">
+      <!-- Hamburger Icon -->
+      <button id="menu-toggle" class="block md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+      <!-- Menu Links -->
+      <ul id="menu" class="hidden md:flex space-x-4 text-white">
         <li><a href="#regular-grammars" class="hover:underline">Regular Grammars</a></li>
         <li><a href="#regular-expressions" class="hover:underline">Regular Expressions</a></li>
         <li><a href="#equivalence" class="hover:underline">Equivalence of Languages</a></li>
@@ -27,6 +34,16 @@
         <li><a href="#dfa-regex" class="hover:underline">DFA & Regex</a></li>
       </ul>
     </div>
+
+    <!-- Mobile Menu -->
+    <ul id="mobile-menu" class="hidden flex-col items-center space-y-2 text-white md:hidden bg-blue-600 p-4">
+      <li><a href="#regular-grammars" class="hover:underline">Regular Grammars</a></li>
+      <li><a href="#regular-expressions" class="hover:underline">Regular Expressions</a></li>
+      <li><a href="#equivalence" class="hover:underline">Equivalence of Languages</a></li>
+      <li><a href="#properties" class="hover:underline">Properties</a></li>
+      <li><a href="#pumping-lemma" class="hover:underline">Pumping Lemma</a></li>
+      <li><a href="#dfa-regex" class="hover:underline">DFA & Regex</a></li>
+    </ul>
   </nav>
 
   <!-- Main Content -->
@@ -124,19 +141,24 @@
         **DFA:** Ek finite state machine hota hai jo input strings ko accept ya reject karta hai based on transitions between states.
       </p>
       <p class="text-gray-600 mb-4">
-        **Regular Expressions:** Ek notation hai jo strings ke pattern ko define karta hai.
+        **Regular Expressions:** Ek notation hai jo pattern-based strings ko describe karti hai.
       </p>
       <p class="text-gray-600">
-        DFA aur regular expressions dono regular languages ko represent karte hain, aur kisi DFA ka equivalent regular expression hota hai, aur vice versa.
+        Dono ek hi regular languages ko represent karte hain, lekin unka representation alag hota hai.
       </p>
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-blue-600 p-4 text-center text-white mt-8">
-    <p>&copy; 2024 Regular Languages and Automata Tutorial</p>
-  </footer>
+  <script>
+    // JavaScript to toggle mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 </html>
