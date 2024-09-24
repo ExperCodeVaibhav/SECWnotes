@@ -5,9 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design Analysis and Algorithms Notes</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .popup-active {
+            display: flex;
+        }
+        .popup-hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
+
+    <!-- Popup Modal -->
+    <div id="popup" class="fixed inset-0 bg-gray-800 bg-opacity-50 popup-hidden items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center relative">
+            <button id="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            <h2 class="text-xl font-semibold mb-4">Disclaimer</h2>
+            <p class="text-sm text-gray-700">
+                All notes here are created using ChatGPT and Google.<br>
+                Other sources may include tutorials and online references.<br>
+                If, after reading this, your marks are reduced, the developer is not responsible.<br>
+                Please study responsibly!
+            </p>
+            <h2 class="text-xl font-semibold mb-4 mt-6">अस्वीकृति</h2>
+            <p class="text-sm text-gray-700">
+                सभी नोट्स यहाँ ChatGPT और Google का उपयोग करके बनाए गए हैं।<br>
+                अन्य स्रोतों में ट्यूटोरियल और ऑनलाइन संदर्भ शामिल हो सकते हैं।<br>
+                यदि, इसे पढ़ने के बाद, आपके अंक कम होते हैं, तो डेवलपर जिम्मेदार नहीं है।<br>
+                कृपया जिम्मेदारी से अध्ययन करें!
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full mb-6">
         <h1 class="text-2xl font-bold text-center mb-6">Design Analysis and Algorithms Notes</h1>
         
         <div class="mb-4">
@@ -28,7 +59,7 @@
         
         <div class="mb-4">
             <a href="flat1.html" class="block bg-blue-500 text-white text-center py-4 rounded-lg shadow hover:bg-blue-600 transition duration-300">
-                Unit 2 Questions
+                Unit 2 Assignment
             </a>
         </div>
 
@@ -39,12 +70,24 @@
         </div>
     </div>
 
-    
-
     <!-- Footer Section -->
     <footer class="mt-6 text-center text-gray-600">
         <p class="text-sm">Developed by Vaibhav Srivastav</p>
         <p class="text-xs">&copy; 2024 Vaibhav Srivastav. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript to control the popup -->
+    <script>
+        // Show the popup after 2 seconds
+        setTimeout(function() {
+            document.getElementById('popup').classList.remove('popup-hidden');
+            document.getElementById('popup').classList.add('popup-active');
+        }, 1000);
+
+        // Close the popup when the close button is clicked
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('popup').classList.add('popup-hidden');
+        });
+    </script>
 </body>
 </html>
