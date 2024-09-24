@@ -1,13 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Expressions Questions and Answers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    
+<body class="bg-gray-100">
 
-   <center> <h1>COming sOOn</h1> </center>
+  <!-- Header Section -->
+  <header class="bg-blue-600 p-6 text-center text-white">
+    <h1 class="text-3xl font-bold">Regular Expression Questions and Explanations</h1>
+    <p class="text-lg mt-2">Learn Regular Expressions through examples and simple explanations</p>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="container mx-auto p-4 space-y-12">
+    
+    <!-- Section A: Basic RE Questions -->
+    <section class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">Section A: Basic Regular Expression Questions</h2>
+      
+      <!-- Question 1 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q1. Write a RE over Σ = {a, b} starting with 'a', but not having consecutive 'b's</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> <code>a(ba)*</code></p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> This expression ensures the string starts with 'a' and doesn't have consecutive 'b's. After 'a', it can have zero or more occurrences of 'b', but 'b' must always be followed by 'a'. This ensures no two 'b's come together.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Yeh expression string ko 'a' se shuru karta hai aur kabhi bhi do lagataar 'b' nahi hone deta.</p>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q2. Write a RE over Σ = {a, b} starting with ‘ab’</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> <code>ab(a|b)*</code></p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> The regular expression ensures that the string starts with 'ab' and can be followed by any combination of 'a' or 'b' after that.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Yeh expression 'ab' se shuru hota hai aur baad mein 'a' ya 'b' ka koi bhi combination ho sakta hai.</p>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q3. Write a RE over Σ = {a, b} where strings start & end with the same symbol</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> <code>(a(a|b)*a) | (b(a|b)*b)</code></p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> This expression ensures that the string either starts and ends with 'a' or starts and ends with 'b'.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Yeh expression un strings ke liye hai jo 'a' ya 'b' se shuru aur khatam hote hain.</p>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q4. Write a RE over Σ = {a, b} where |W| = 0 (Mod 2)</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> <code>(aa|bb|ab|ba)*</code></p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> This expression ensures the length of the string is divisible by 2, meaning the string has an even length.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Yeh expression un strings ko match karta hai jinki length even ho (do ka multiple ho).</p>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q5. Write a RE over Σ = {a, b} having even length of the string</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> <code>(aa|bb|ab|ba)*</code></p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> Same as Question 4, this regular expression ensures that the string has an even length.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Yeh expression un strings ko represent karta hai jinki length hamesha even hogi.</p>
+      </div>
+    </section>
+
+    <!-- Section B: Proving REs -->
+    <section class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">Section B: Proving Regular Expression Equivalency</h2>
+      
+      <!-- Question 1 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q1. Prove that aa* + bb* is the same as (a + b)*</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> Both expressions generate the same set of strings.</p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> The expression (a + b)* generates all possible strings made of 'a' and 'b'. The expression aa* + bb* only allows strings made of 'a's or 'b's. However, the first expression includes all combinations that the second one generates, so they are equivalent.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Dono expressions ka result same hai, kyunki (a + b)* zyada possibilities ko cover karta hai.</p>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q2. Prove that (a*ab + ba)*a* = (a + ab + ba)*</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> Both regular expressions generate the same set of strings.</p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> The left-hand side allows combinations of 'a', 'ab', and 'ba', and can be followed by any number of 'a's. The right-hand side generates the same combinations. Both expressions are equivalent because they cover the same possibilities.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Dono expressions same strings ko generate karte hain, isliye dono ka result barabar hai.</p>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q3. Construct a Finite Automata of (ab + a*)*b</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> A finite automaton can be constructed with states for reading 'ab' or multiple 'a's, and ending with 'b'.</p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> The FA reads patterns of 'ab' or 'a's and must always end with a 'b'. Transitions are defined to allow this.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Yeh FA 'ab' ya kai 'a' padh kar 'b' par khatam hota hai.</p>
+      </div>
+    </section>
+
+    <!-- Section C: Advanced RE Concepts -->
+    <section class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">Section C: Advanced Regular Expression Concepts</h2>
+      
+      <!-- Arden's Theorem -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q1 & Q2. Write Arden’s Theorem and find out the regular expression for the given FA</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> Arden's theorem helps solve regular expressions for finite automata by finding expressions for each state in terms of the others.</p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Arden's Theorem ek FA ke liye regular expression nikalne mein madad karta hai.</p>
+      </div>
+      
+      <!-- Automata Comparison -->
+      <div class="p-4 bg-gray-50 rounded-lg mb-6">
+        <h3 class="text-xl font-semibold text-gray-800">Q3. Show that the given automata are equal or not</h3>
+        <p class="mt-2 text-gray-600"><strong>Answer:</strong> The automata are equal if their minimized forms are the same.</p>
+        <p class="mt-2 text-gray-600">
+          <strong>Explanation:</strong> You can check equality by minimizing both automata and comparing their transition diagrams.
+        </p>
+        <p class="mt-2 text-gray-600"><strong>Hindi:</strong> Dono automata ko minimize karke dekhte hain ki woh same hain ya nahi.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 p-6 text-center text-white mt-8">
+    <p>&copy; 2024 Regular Expressions Tutorial</p>
+  </footer>
+
 </body>
 </html>
