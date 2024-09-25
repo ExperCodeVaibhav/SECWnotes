@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CG2 - Computer Graphics</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for scroll-to-top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            display: none; /* Hide by default */
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <nav class="bg-blue-600 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl">Computer Graphics II</h1>
+            <div class="hidden md:flex space-x-4">
+                <a href="#section1" class="text-white">Scan Conversion</a>
+                <a href="#section2" class="text-white">Rasterization</a>
+                <a href="#section3" class="text-white">Clipping</a>
+                <a href="#section4" class="text-white">Window & Viewport</a>
+                <a href="#section5" class="text-white">8-way Symmetry</a>
+                <a href="#secB" class="text-white">Bresenham's vs DDA</a>
+                <a href="#secC" class="text-white">Circle Generation</a>
+            </div>
+            <div class="md:hidden">
+                <button id="hamburger" class="text-white focus:outline-none">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto py-12 px-6">
+        <section id="section1" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">What is Scan Conversion? [2 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Scan Conversion ek process hai jisme graphical objects ko raster format (pixels) mein convert kiya jata hai taaki unhe display screens par dikhaya ja sake. Yeh process vector graphics ko pixels mein convert karke image quality ko maintain karta hai, jisse high-resolution images display hoti hain.
+            </p>
+        </section>
+
+        <section id="section2" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">What is Rasterization? [2 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Rasterization ek technique hai jisme vector graphics (jisse mathematical equations se define kiya jata hai) ko pixels mein convert kiya jata hai. Is process mein har pixel ka color set kiya jata hai, jo ultimately screen par visible image banata hai. Yeh process computer graphics ka ek core component hai.
+            </p>
+        </section>
+
+        <section id="section3" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Define Clipping and Clip Window. [2 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Clipping ek process hai jisme graphical objects ko display window ke boundaries ke andar restrict kiya jata hai. Isse unwanted portions ko remove kiya jata hai. Clip window wo area hai jahan par graphics ko dikhana hota hai. Clipping se rendering efficiency badh jaati hai aur unwanted computations se bachne mein madad milti hai.
+            </p>
+        </section>
+
+        <section id="section4" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Distinguish between Window Port and Viewport? [2 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Window Port ek rectangular area hai jahan se graphical objects ko clip kiya jata hai, jabki Viewport wo area hai jahan clipped image display hota hai. Window Port graphics ko define karta hai, jabki Viewport unhe screen par kaise dikhaya jata hai yeh define karta hai. In dono ka combination efficient rendering aur display control ke liye zaroori hai.
+            </p>
+        </section>
+
+        <section id="section5" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">What is the importance of 8-way symmetry in scan conversion of circle? [2 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                8-way symmetry ka matlab hai ki agar circle ke ek quadrant ko calculate kiya jaye, toh baaki ke quadrants bhi usi symmetry ka use karke calculate kiye ja sakte hain. Isse computational efficiency badh jaati hai, kyunki ek hi quadrant ki calculation se poore circle ka rendering ho sakta hai. Yeh method circle ke liye bahut effective hai, jo performance ko enhance karta hai.
+            </p>
+        </section>
+
+        <section id="secB" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Differentiate between DDA and Bresenham's line drawing algorithm. [7 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                DDA (Digital Differential Analyzer) aur Bresenham's algorithm dono line drawing algorithms hain, par inke kaam karne ke tarike alag hain. DDA algorithm floating point arithmetic ka use karta hai, jabki Bresenham’s algorithm integer arithmetic ka use karta hai, jo use efficient aur faster banata hai. DDA mein round-off errors ka risk hota hai, jabki Bresenham's algorithm yeh issue avoid karta hai. DDA ko simple implementation ke liye jaana jata hai, jabki Bresenham's ko accurate line drawing ke liye prefer kiya jata hai.
+            </p>
+        </section>
+
+        <section id="secB2" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Explain Bresenham’s line drawing algorithm. Draw a line from (2,3) to (5,8) by using Bresenham’s algorithm. [7 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Bresenham’s line drawing algorithm ek efficient method hai jo integer arithmetic ka use karke line draw karta hai. Yeh algorithm yeh decide karta hai ki agla pixel kis position par plot karna hai, jisse line draw hoti hai. 
+            </p>
+            <h3 class="text-lg font-semibold mb-2">Steps to draw line from (2,3) to (5,8):</h3>
+            <ul class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li>Calculate dx = x2 - x1 = 5 - 2 = 3</li>
+                <li>Calculate dy = y2 - y1 = 8 - 3 = 5</li>
+                <li>Calculate initial decision parameter p = 2dy - dx = 2(5) - 3 = 7</li>
+                <li>For each x from x1 to x2:</li>
+                <li>If p < 0, then plot (x, y) and increment x.</li>
+                <li>If p >= 0, then plot (x, y) and increment x and y.</li>
+            </ul>
+            <p class="text-lg text-gray-700 mb-4">
+                Is tarike se, Bresenham’s algorithm use karke line draw ki ja sakti hai. 
+            </p>
+        </section>
+
+        <section id="secB3" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Write DDA algorithm and also write the advantage and disadvantage of this algorithm. [7 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                DDA algorithm ek simple line drawing technique hai jo pixels ko sequentially compute karta hai. Iska formula hota hai:
+            </p>
+            <h3 class="text-lg font-semibold mb-2">DDA Algorithm:</h3>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li>Start with two endpoints (x1, y1) and (x2, y2).</li>
+                <li>Calculate dx = x2 - x1 and dy = y2 - y1.</li>
+                <li>Calculate steps = max(|dx|, |dy|).</li>
+                <li>Calculate x increment = dx / steps and y increment = dy / steps.</li>
+                <li>Plot the pixels at (x, y) for each step.</li>
+            </ol>
+            <h3 class="text-lg font-semibold mb-2">Advantages:</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Simpler implementation.</li>
+                <li>Good for generating lines with variable slopes.</li>
+            </ul>
+            <h3 class="text-lg font-semibold mb-2">Disadvantages:</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Less efficient due to floating-point calculations.</li>
+                <li>Round-off errors can occur.</li>
+            </ul>
+        </section>
+
+        <section id="secC" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Write midpoint circle generation algorithm. Draw circle having center(0,0) and radius 9 using this algorithm. [11 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Midpoint circle generation algorithm ek efficient method hai circles ko draw karne ke liye. Yeh algorithm circle ke octants ko use karke circle ko generate karta hai.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">Midpoint Circle Algorithm:</h3>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li>Set the initial point (0, r) where r is the radius.</li>
+                <li>Calculate the decision parameter p = 1 - r.</li>
+                <li>For each point from 0 to r:</li>
+                <li>If p < 0, plot the next point in the same direction.</li>
+                <li>If p >= 0, plot the next point and adjust the decision parameter.</li>
+            </ol>
+            <p class="text-lg text-gray-700 mb-4">
+                Is tarike se (0,0) center aur radius 9 ka circle generate kiya ja sakta hai.
+            </p>
+        </section>
+
+        <section id="secC2" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Write Cohen Sutherland algorithm for Line clipping. [11 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Cohen-Sutherland algorithm line clipping ka ek efficient method hai jo lines ko clip karta hai based on a rectangular clipping window. Yeh algorithm regions ko divide karta hai aur har endpoint ke liye codes assign karta hai.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">Cohen-Sutherland Algorithm:</h3>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li>Define the clipping window with boundaries.</li>
+                <li>Assign codes to each endpoint of the line.</li>
+                <li>Use logical operations to determine the position of the line with respect to the window.</li>
+                <li>Clip the line according to the codes assigned.</li>
+            </ol>
+            <p class="text-lg text-gray-700 mb-4">
+                Is tarike se lines ko efficient clipping milti hai.
+            </p>
+        </section>
+
+        <section id="secC3" class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Explain flood filling and boundary filling methods. Give its two real-life examples where they are used. [11 Marks]</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Flood filling aur boundary filling methods graphical regions ko fill karne ke liye use hoti hain. 
+            </p>
+            <h3 class="text-lg font-semibold mb-2">Flood Filling:</h3>
+            <p class="text-lg text-gray-700 mb-4">
+                Flood filling method ek area ko fill karne ka process hai starting from a given point. Yeh method recursively adjacent pixels ko fill karta hai jab tak filling ki area ko complete nahi kiya jata.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">Boundary Filling:</h3>
+            <p class="text-lg text-gray-700 mb-4">
+                Boundary filling method mein area ko fill karne ke liye boundary pixels ko define kiya jata hai. Is method mein filling ki shuruaat boundary se hoti hai aur baad mein area ko fill kiya jata hai.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">Real-life Examples:</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Digital image editing software (like Photoshop) uses flood filling to fill colors in drawings.</li>
+                <li>Computer-aided design (CAD) applications use boundary filling for area calculations in drawings.</li>
+            </ul>
+        </section>
+    </div>
+
+
+
+    <button id="scrollToTop" class="scroll-to-top">
+        ↑
+    </button>
+
+    
+    <footer class="mt-6 text-center text-gray-600">
+        <p class="text-sm">Developed by Vaibhav Srivastav</p>
+        <p class="text-xs">&copy; 2024 Vaibhav Srivastav. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll to top functionality
+        window.onscroll = function() {
+            const button = document.getElementById('scrollToTop');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        document.getElementById('scrollToTop').onclick = function() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        };
+
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('nav div.md\\:flex');
+
+        hamburger.onclick = function() {
+            navLinks.classList.toggle('hidden');
+        };
+    </script>
+</body>
+</html>

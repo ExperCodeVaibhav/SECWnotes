@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview of Computer Graphics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<style>
+    /* Scroll-to-top button styles */
+    #scrollToTop {
+        position: fixed;
+        bottom: 4rem; /* Adjust this value to move the button higher or lower */
+        right: 6rem; /* Adjusted to move away from chatbot */
+        background-color: #1D4ED8; /* Tailwind blue-600 */
+        color: white;
+        padding: 0.75rem;
+        border-radius: 9999px; /* Fully round */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 1000; /* Ensure it's above other elements */
+    }
+
+    /* Show button when scrolling */
+    #scrollToTop.show {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
+
+
+
+<body class="bg-gray-100 text-gray-900">
+
+
+
+    
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Overview of Computer Graphics</h1>
+
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Computer Graphics ka matlab hota hai computer ke through banayi gayi images, animations, aur visual effects. Yeh ek aisi technology hai jisme hum real-world objects ko computer screen pe visually represent karte hain. Computer graphics ka use bahut saare fields mein hota hai jaise games, animation movies, architecture, aur scientific simulations.
+            </p>
+
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Key Concepts</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Pixels:</strong> Screen pe images pixels se banti hain. Yeh chhote dots hote hain jo milke puri image banaate hain.</li>
+                <li><strong>Rendering:</strong> 3D objects ko 2D images mein convert karna.</li>
+                <li><strong>Rasterization:</strong> 3D object ko small pixels mein todna.</li>
+                <li><strong>Vector Graphics:</strong> Mathematical functions se lines, shapes, curves create karna.</li>
+                <li><strong>3D Modelling:</strong> 3D objects ko digitally create karna.</li>
+                <li><strong>Animation:</strong> Continuous series of images se moving effect create karna.</li>
+                <li><strong>Shaders:</strong> Lighting, shadows aur colors ko handle karne wale programs.</li>
+            </ul>
+
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Example</h2>
+            <p class="text-lg text-gray-700">
+                Suppose hum ek 2D screen pe ek rectangle draw karna chahte hain jiska dimension hai 200x100 pixels. Agar hume ise 3D space mein convert karna ho, toh hum 3D coordinates aur rendering techniques ka use karenge.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Computer Graphics Applications and Software</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Applications of Computer Graphics</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Computer graphics ka use kai industries mein hota hai. Yeh ek powerful tool hai jo complex visuals create karne aur represent karne mein help karta hai. Yaha kuch important applications hain:
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Entertainment:</strong> Movies, animations, aur video games mein CGI ka use karke advanced visuals aur special effects create kiye jaate hain. Jaise ki Avatar aur Avengers jaise movies mein extensive use hota hai.</li>
+                <li><strong>Education:</strong> Visual simulations aur animations ka use karke difficult concepts ko easily samjhaya jaa sakta hai. Science aur engineering ke subjects mein iska wide use hota hai.</li>
+                <li><strong>Medical Imaging:</strong> MRI aur CT scans jaise advanced medical imaging techniques mein human body ke internal structures ka visual representation hota hai.</li>
+                <li><strong>CAD (Computer-Aided Design):</strong> Architects aur engineers CAD software ka use karke 3D models aur structures create karte hain buildings aur machines ke liye.</li>
+                <li><strong>Virtual Reality & Augmented Reality:</strong> VR aur AR environments banane mein computer graphics ka important role hota hai, jo real aur virtual world ke beech interaction ko enable karta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Popular Software Used in Computer Graphics</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Computer graphics create karne ke liye kai advanced software tools available hain jo industries mein use hote hain. Kuch popular software hain:
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Adobe Photoshop:</strong> 2D photo editing aur graphics design ke liye popular tool jo designers extensively use karte hain.</li>
+                <li><strong>Autodesk Maya:</strong> 3D animation aur modeling ke liye industry standard software jo movies aur game development mein kaafi use hota hai.</li>
+                <li><strong>Blender:</strong> Free aur open-source software jo 3D modeling, animation aur rendering ke liye beginners se lekar professionals tak use karte hain.</li>
+                <li><strong>CorelDRAW:</strong> Vector graphics design ke liye popular software jo marketing materials, logos, aur illustrations banane mein use hota hai.</li>
+                <li><strong>Unity & Unreal Engine:</strong> Game development aur VR/AR applications banane ke liye kaafi popular 3D engines jo realistic environments create karne mein help karte hain.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Description of Some Graphic Devices</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Graphic devices ka matlab hota hai wo hardware aur software tools jo computer graphics create karne aur display karne mein madad karte hain. In devices ka use alag-alag applications aur industries mein hota hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Types of Graphic Devices</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Monitors:</strong> Computer screens jo digital images aur videos display karte hain. Different types hain jaise LCD, LED, aur OLED, jo color accuracy aur brightness mein alag hain.</li>
+                <li><strong>Graphics Tablets:</strong> Touch-sensitive surface jo artists ko drawings aur designs directly digital format mein create karne ki facility deti hai. Example: Wacom tablets.</li>
+                <li><strong>Printers:</strong> Hard copies produce karne ke liye use hoti hain. Inkjet aur laser printers widely used hain for printing high-quality graphics and images.</li>
+                <li><strong>Graphic Cards:</strong> Computer components jo graphics rendering ko accelerate karte hain. Yeh high-quality graphics create karne ke liye powerful processors aur memory rakhte hain.</li>
+                <li><strong>3D Glasses:</strong> Virtual reality aur augmented reality experiences ke liye special glasses jo 3D content ko immersive way mein experience karne ke liye use hote hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Conclusion</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                In graphic devices ka sahi selection aur use computer graphics ki quality aur performance ko significantly improve kar sakta hai. Yeh devices creativity aur efficiency ko enhance karte hain, especially design aur animation fields mein.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Input Devices for Operator Instruction</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Input devices wo hardware components hote hain jo operator ko computer ke sath interact karne mein madad karte hain. Yeh devices user ke input ko computer system tak pahunchate hain, jisse system ka response generate hota hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Types of Input Devices</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Keyboard:</strong> Sabse common input device, jisme keys hoti hain jinke through text aur commands enter kiye jaate hain. Iska layout standard hota hai, jisme alphanumeric aur function keys shamil hote hain.</li>
+                <li><strong>Mouse:</strong> Ek pointing device jo cursor ko move karne aur selection karne mein madad karta hai. Ismein left, right buttons aur scroll wheel hota hai, jo navigation ko aasaan banata hai.</li>
+                <li><strong>Touchscreen:</strong> Aisa display jo touch input ko recognize karta hai. Isme users directly screen par tap ya swipe karke input dete hain, jo mobile devices aur kiosks mein popular hai.</li>
+                <li><strong>Scanner:</strong> Documents aur images ko digital format mein convert karne ke liye use hota hai. Yeh optical devices hoti hain jo physical documents ko read karke unka digital version create karti hain.</li>
+                <li><strong>Microphone:</strong> Audio input ke liye use hota hai, jo voice commands aur recordings ke liye zaroori hai. Yeh voice recognition software ke sath kaam karta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Conclusion</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Input devices ka selection operator instruction ko aasaan aur effective banata hai. In devices ki variety se users apne kaam ki requirements ke hisaab se suitable input method choose kar sakte hain.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Active and Passive Graphic Devices</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Graphic devices ko do main categories mein divide kiya ja sakta hai: Active aur Passive graphic devices. In devices ka role graphics creation aur display mein alag hota hai. 
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Active Graphic Devices</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Active graphic devices wo hote hain jo khud se images create karne ki capability rakhte hain. Yeh devices graphics ko generate karne ke liye additional power supply ka use karte hain aur inka response time bhi instant hota hai. 
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Examples:</strong> 
+                    <ul class="list-disc pl-6">
+                        <li><strong>CRT Monitors:</strong> Cathode Ray Tube monitors jo images create karne ke liye electron beams ka use karte hain. Yeh devices real-time image generation ka capability rakhte hain.</li>
+                        <li><strong>LCD/LED Displays:</strong> In monitors mein light-emitting diodes ya liquid crystal display technology ka istemal hota hai, jo vibrant colors aur high resolution provide karte hain.</li>
+                        <li><strong>Projectors:</strong> Yeh devices video ya images ko larger screen par project karte hain aur user interaction ko support karte hain.</li>
+                    </ul>
+                </li>
+                <li><strong>Features:</strong>
+                    <ul class="list-disc pl-6">
+                        <li>Real-time rendering capabilities.</li>
+                        <li>Higher image quality aur resolution.</li>
+                        <li>Interactive display capabilities.</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Passive Graphic Devices</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Passive graphic devices wo hote hain jo kisi external source se images receive karte hain aur unhe display karte hain. In devices ko images generate karne ke liye kisi active device ki zaroorat hoti hai. 
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Examples:</strong>
+                    <ul class="list-disc pl-6">
+                        <li><strong>Printers:</strong> Documents aur images ko hard copies mein print karte hain. Yeh devices digital images ko physical format mein convert karte hain.</li>
+                        <li><strong>Plotters:</strong> Technical drawings aur large format prints create karne ke liye use hote hain. Yeh devices paper par designs ko accurately reproduce karte hain.</li>
+                        <li><strong>Old Monitors (like monochrome displays):</strong> Yeh displays sirf ek color ya shades of a color dikhate hain, aur kisi bhi tarah se khud images create nahi karte.</li>
+                    </ul>
+                </li>
+                <li><strong>Features:</strong>
+                    <ul class="list-disc pl-6">
+                        <li>Dependent on external devices for image generation.</li>
+                        <li>Lower power consumption as compared to active devices.</li>
+                        <li>Typically used for final output rather than interactive use.</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Conclusion</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Active aur passive graphic devices ka use graphics creation aur display ke alag-alag aspects ko address karne ke liye hota hai. Active devices high-quality aur interactive graphics generate karte hain, jabki passive devices final output ke liye use kiye jaate hain. In dono ka combination effective graphic representation ke liye zaroori hai.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Storage Tube Graphic Displays</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Storage tube graphic displays ek prakar ke display device hote hain jo images ko store aur display karne ke liye use kiye jaate hain. Yeh devices khas taur par electronic drawings aur visual representations ke liye design kiye gaye the, aur inhe pehli baar 1960s aur 1970s mein develop kiya gaya tha.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">How Storage Tube Displays Work</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Storage tube displays ek cathode ray tube (CRT) technology par based hote hain. Yeh devices ek electron beam ka use karke phosphorescent screen par images create karte hain. Storage tube ka khaas feature yeh hai ki yeh images ko temporarily store kar sakte hain, jisse multiple images ko display karne ki flexibility milti hai.
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Working Principle:</strong>
+                    <ul class="list-disc pl-6">
+                        <li>Storage tube mein, electrons ko accelerate kiya jaata hai aur ek target screen par direct kiya jaata hai.</li>
+                        <li>Screen par dots create hote hain jab electron beam phosphor material ko hit karti hai.</li>
+                        <li>Images ko store karne ke liye, ek "storage" mechanism ka istemal hota hai jo stored charge ko maintain karta hai, jis se image ko kuch samay tak display kiya ja sakta hai.</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages of Storage Tube Displays</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>High Resolution:</strong> Storage tube displays ko high-resolution graphics generate karne ki capability hoti hai, jo detailed images aur drawings ke liye perfect hai.</li>
+                <li><strong>Temporary Storage:</strong> Yeh displays images ko kuch samay ke liye store kar sakte hain, jis se operator ko multiple images dekhne ka mauka milta hai bina nayi input diye.</li>
+                <li><strong>Interactive Capabilities:</strong> Storage tubes ke saath interactive devices connect kiye ja sakte hain, jisse users images ke sath interact kar sakte hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages of Storage Tube Displays</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Cost:</strong> Yeh devices kaafi costly hote hain, isliye yeh sabhi applications ke liye suitable nahi hain.</li>
+                <li><strong>Size:</strong> Storage tube displays ka size comparatively bada hota hai, jo modern compact display devices ke mukable mein disadvantage ho sakta hai.</li>
+                <li><strong>Heat Generation:</strong> Yeh devices kaafi heat generate karte hain, jo cooling systems ki zaroorat badhata hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications of Storage Tube Displays</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Storage tube graphic displays ka istemal khas taur par military applications, medical imaging, aur scientific research mein hota hai. Inka use high-quality images aur visualizations generate karne ke liye kiya jaata hai, jahan precision aur clarity zaroori hoti hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Conclusion</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Storage tube graphic displays ek important technology hain jo graphics representation aur visualization mein significant role play karte hain. Halanki inki kuch limitations hain, lekin inka potential aur applications ab bhi kaafi valuable hain.
+            </p>
+        </div>
+    </section>
+
+    
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Caligraphic Refresh Graphic Display</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Caligraphic refresh graphic displays ek advanced technology hai jo high-quality graphics aur animations produce karne ke liye design ki gayi hai. Yeh display technology primarily vector graphics ko render karne ke liye use hoti hai, jahan graphics mathematical equations par based hote hain. Iska istemal un applications mein hota hai jahan smooth lines, high detail, aur fast rendering ki zarurat hoti hai, jaise CAD (Computer-Aided Design) aur gaming.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working Principle</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Caligraphic refresh displays vector graphics ko draw karne ke liye use kiye jaate hain. Yeh devices directly mathematical equations ka istemal karte hain, jo lines aur curves create karte hain. Is process mein, display ki refresh rate kaafi high hoti hai, jis se images aur animations quickly redraw kiye ja sakte hain. Har baar jab image change hoti hai, display usse calculate karke naya image generate karta hai, jis se continuous motion aur interaction possible hota hai.
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Vector Graphics:</strong> Vector graphics resolution-independent hote hain, yani ki inhe kisi bhi size mein resize kiya ja sakta hai bina quality lose kiye. Yeh mathematical equations aur points ke combination se bante hain.</li>
+                <li><strong>Refresh Rate:</strong> High refresh rates (jese ki 60Hz ya usse zyada) ensure karte hain ki graphics smoothly aur without flickering display ho sake. Isse animations aur video playback mein realism aata hai.</li>
+                <li><strong>Drawing Algorithms:</strong> Caligraphic displays various algorithms jaise Bresenham's line algorithm ka istemal karte hain taaki lines ko efficiently render kiya ja sake. Yeh algorithms pixel-level accuracy aur smoothness ensure karte hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages of Caligraphic Refresh Displays</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>High Quality:</strong> Caligraphic displays se high-resolution aur detail-rich images produce kiye ja sakte hain, jo smooth edges aur realistic textures dikhate hain.</li>
+                <li><strong>Efficiency:</strong> Vector-based graphics ko redraw karna zyada efficient hota hai, kyunki inhe ek nayi image create karne ki zarurat nahi hoti. Yeh processes graphics ko efficiently manage karte hain.</li>
+                <li><strong>Flexibility:</strong> Users alag-alag resolutions aur sizes ke liye graphics create kar sakte hain bina quality lose kiye. Yeh kaafi beneficial hai design applications ke liye jahan customization zaroori hai.</li>
+                <li><strong>Interactive Graphics:</strong> High refresh rates aur vector-based rendering se interactive graphics create karna asan hota hai, jo user experience ko enhance karta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages of Caligraphic Refresh Displays</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Complexity:</strong> Is technology ko implement karna complex hota hai aur iske liye specialized hardware ki zarurat hoti hai. Yadi hardware properly configure nahi hota hai, toh performance issues ho sakte hain.</li>
+                <li><strong>Cost:</strong> Caligraphic refresh displays generally costly hote hain, jo unhe sabhi applications ke liye suitable nahi banate. Iski advanced technology aur materials ki wajah se initial investment high hota hai.</li>
+                <li><strong>Limited Color Range:</strong> Kuch older models mein color reproduction limitations ho sakti hain, jo graphics ki quality ko affect karti hain. Yeh especially un applications mein noticeable hota hai jahan vibrant colors ki zarurat hoti hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications of Caligraphic Refresh Displays</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Caligraphic refresh displays ka use khas taur par un industries mein hota hai jahan visual accuracy aur detail kaafi zaroori hai. Kuch key applications hain:
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Computer-Aided Design (CAD):</strong> Engineers aur architects in displays ka use karte hain taaki precise drawings aur models create kiye ja sakein. Is technology se detailed blueprints aur 3D models efficiently design kiye ja sakte hain.</li>
+                <li><strong>Scientific Simulations:</strong> Research aur educational fields mein complex simulations ko visualize karne ke liye caligraphic displays ka use hota hai. Yeh simulations scientific data ko graphical representation mein convert karte hain.</li>
+                <li><strong>Graphic Design:</strong> Graphic designers caligraphic refresh displays ko use karte hain taaki smooth and scalable graphics create kiye ja sakein, jo unki designs ko vibrant aur attractive banate hain.</li>
+                <li><strong>Gaming:</strong> Modern gaming applications mein yeh displays kaafi popular hain kyunki yeh high-quality graphics aur seamless animations ko support karte hain, jis se gaming experience enhanced hota hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Conclusion</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Caligraphic refresh graphic displays ek significant advancement hai graphics technology mein, jo high-quality vector graphics aur animations ko display karne mein madad karte hain. Inki efficiency aur quality inhe various applications mein valuable banate hain, lekin inki complexity aur cost kuch limitations bhi deti hai. Aane wale samay mein, jese technology aur bhi evolve hoti hai, hum expect kar sakte hain ki in displays ki applications aur bhi badhenge.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Raster Scan Graphic Displays</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Raster Scan Graphic Displays ek aisi technology hai jisme images ko pixels ki rows aur columns mein arrange karke dikhaya jata hai. Yeh technique modern displays jaise CRT (Cathode Ray Tube), LCD (Liquid Crystal Display), aur LED (Light Emitting Diode) screens mein use hoti hai. Is method se image ko continuously refresh kiya jata hai, jisse smooth motion aur high-quality visuals milte hain.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working Principle</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Raster scan displays pixels ko sequentially scan karte hain. Ek electron beam (CRT displays mein) ya light source (LCD/LED displays mein) horizontally screen ke left se right tak scan karta hai aur fir next line par move hota hai. Is tarike se, puri screen ko ek specific frame ke liye cover kiya jata hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Process of Displaying Images</h2>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Frame Buffer:</strong> Pehle, image ka pixel data frame buffer mein store kiya jata hai. Frame buffer ek memory area hota hai jahan har pixel ka color information rakha jata hai.</li>
+                <li><strong>Scanning:</strong> Jab display on hota hai, raster scan process start hota hai. Beam horizontal lines mein pixels ko scan karta hai, left to right, top to bottom.</li>
+                <li><strong>Refresh Cycle:</strong> Ek baar jab ek frame complete ho jata hai, display ko refresh kiya jata hai taaki image continuously update hoti rahe. Yeh refresh rate display ki quality ko affect karta hai.</li>
+            </ol>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>High Resolution:</strong> Raster scan displays high resolution ko support karte hain, jisse detailed images dikhayi ja sakti hain.</li>
+                <li><strong>Color Depth:</strong> Yeh multiple colors ko display kar sakte hain, making them ideal for graphics and media.</li>
+                <li><strong>Versatility:</strong> Raster graphics various applications jaise gaming, video playback, aur graphic design mein use hoti hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Memory Requirement:</strong> Raster graphics large memory ki requirement karte hain, kyunki har pixel ki color information store karni hoti hai.</li>
+                <li><strong>Flicker Issues:</strong> Agar refresh rate low hai, toh flickering ka issue ho sakta hai, jo user experience ko affect karta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Television and Monitors:</strong> Raster scan technology modern TVs aur computer monitors mein use hoti hai.</li>
+                <li><strong>Gaming:</strong> High-quality graphics aur smooth motion ke liye raster scan graphics ka use gaming consoles mein hota hai.</li>
+                <li><strong>Medical Imaging:</strong> Raster displays medical imaging applications jaise MRI aur CT scans mein bhi use hote hain.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Cathode Ray Tube (CRT)</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Cathode Ray Tube (CRT) ek purani display technology hai jo pehle televisions aur computer monitors mein use hoti thi. Yeh device electron beams ka use karke images ko display karta hai. CRT technology abhi bhi kuch niche applications jaise oscilloscopes aur older gaming consoles mein dekhne ko milti hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working Principle</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                CRT ek vacuum tube hai jisme electron gun hota hai jo screen par electron beams shoot karta hai. Jab yeh beams phosphorescent screen par girti hain, toh yeh light emit karti hain aur images create karti hain.
+            </p>
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Components of CRT</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Electron Gun:</strong> Yeh component electrons ko generate karta hai aur unhe accelerate karke screen par shoot karta hai.</li>
+                <li><strong>Deflection System:</strong> Iska kaam electron beams ko sahi position par redirect karna hota hai. Yeh magnetic ya electrostatic fields ka use kar sakta hai.</li>
+                <li><strong>Phosphor Coating:</strong> Screen par phosphor material hota hai, jo electron beams ke hit hone par light emit karta hai. Alag alag colors ke liye alag alag phosphors use kiye jaate hain.</li>
+                <li><strong>Vacuum Tube:</strong> CRT ke andar vacuum hota hai jisse electrons freely travel kar sakein bina kisi resistance ke.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>High Color Accuracy:</strong> CRT displays high color accuracy aur contrast provide karte hain.</li>
+                <li><strong>Wide Viewing Angles:</strong> CRT screens par viewing angles kaafi wide hote hain, jisse image quality kam nahi hoti.</li>
+                <li><strong>Low Motion Blur:</strong> Fast-moving images par CRT displays motion blur kaafi kam hota hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Size and Weight:</strong> CRT displays bulky aur heavy hote hain, jo modern designs ke liye suitable nahi hote.</li>
+                <li><strong>Power Consumption:</strong> CRTs kaafi zyada power consume karte hain compared to modern displays.</li>
+                <li><strong>Screen Burn-In:</strong> Long time tak static images dikhane se screen burn-in ho sakta hai, jisse permanent ghost images ban jaate hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Television:</strong> CRT technology pehle TV sets mein common thi.</li>
+                <li><strong>Computer Monitors:</strong> Old computer monitors mein CRT ka istemal hota tha.</li>
+                <li><strong>Oscilloscopes:</strong> CRT displays ko electronic test instruments jaise oscilloscopes mein use kiya jata hai.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Color CRT, Raster Scan, and Video Basics</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Color CRT</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Color CRT (Cathode Ray Tube) ek aisa display device hai jo different colors ko produce karne ke liye teen primary colors: Red, Green, aur Blue (RGB) ka istemal karta hai. Har color CRT mein teen alag electron guns hote hain, jo respective phosphor dots par electrons shoot karte hain, jisse colors mix hote hain aur ek complete image banti hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working of Color CRT</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Electron Guns:</strong> Teen electron guns (ek red, ek green, ek blue) electron beams ko generate karte hain.</li>
+                <li><strong>Phosphor Coating:</strong> Screen par RGB phosphor dots hote hain. Jab electrons in dots par girte hain, toh yeh respective colors emit karte hain.</li>
+                <li><strong>Beam Deflection:</strong> Deflection system (magnetic ya electrostatic) electron beams ko accurate position par deflect karta hai taaki correct pixel light up ho sake.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages of Color CRT</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>High Color Accuracy:</strong> Color CRTs mein color reproduction kaafi accurate hoti hai, jo high-quality images provide karti hai.</li>
+                <li><strong>Wide Viewing Angles:</strong> Color CRT displays par viewing angles kaafi achhe hote hain, jo image quality ko maintain karte hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Raster Scan Technique</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Raster scan ek method hai jisse CRT displays images ko draw karte hain. Is technique mein screen ko left se right aur top se bottom ki taraf sequentially scan kiya jata hai. Har scan line ke complete hone par, CRT apni position ko next line par shift karte hue image draw karta hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working of Raster Scan</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Horizontal Scan:</strong> Har line ke liye electron gun horizontally scan karta hai, pixels ko sequentially light up karta hai.</li>
+                <li><strong>Vertical Refresh:</strong> Har horizontal scan ke baad, electron gun vertical shift hota hai aur next line ko scan karta hai.</li>
+                <li><strong>Frame Rate:</strong> Is process ko frame rate ke roop mein measure kiya jata hai, jo ki ek second mein kitni baar complete screen redraw hoti hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Video Basics</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Video technology mein, ek series of images ko rapidly display kiya jata hai, taaki ek smooth motion effect create ho sake. Video signals analog ya digital format mein ho sakte hain, aur inhe standard display devices jaise TVs aur monitors par output kiya jata hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Key Components of Video Technology</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Frame:</strong> Ek single image ko frame kaha jata hai. Multiple frames ko combine karne se video create hota hai.</li>
+                <li><strong>Frame Rate:</strong> Frame rate woh number hai jo batata hai ki ek second mein kitne frames display hote hain (jaise 24, 30, 60 fps).</li>
+                <li><strong>Resolution:</strong> Resolution ka matlab hai screen par pixels ki quantity. Jaise, 1920x1080 pixels ek Full HD resolution hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications of Video Technology</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Television Broadcasting:</strong> Live events aur shows broadcast karne ke liye video technology use hoti hai.</li>
+                <li><strong>Video Games:</strong> Interactive gaming experiences create karne ke liye video displays ka istemal hota hai.</li>
+                <li><strong>Film Production:</strong> Movies aur documentaries produce karne mein video technology kaafi important hai.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">The Video Controller</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Video controller ek essential hardware component hai jo computer ya display system ko video signal generate karne aur display par output karne mein madad karta hai. Iska kaam graphics ko render karna aur unhe display device par properly show karna hota hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Key Functions of a Video Controller</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Signal Generation:</strong> Video controller video signals generate karta hai jo display device ko samajh aate hain, jaise analog ya digital signals.</li>
+                <li><strong>Pixel Management:</strong> Yeh controller pixels ko manage karta hai, ensuring correct color and brightness for each pixel on the screen.</li>
+                <li><strong>Frame Buffering:</strong> Frame buffer ek memory area hota hai jahan image data temporarily store hota hai jab tak woh display par nahi aa jata.</li>
+                <li><strong>Refresh Rate Control:</strong> Video controller refresh rate ko control karta hai, jo frame display hone ki speed ko define karta hai.</li>
+                <li><strong>Resolution Adjustment:</strong> Yeh controller screen resolution ko adjust karne mein madad karta hai, jisse image clarity aur sharpness badhta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Types of Video Controllers</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Video controllers kaafi tarah ke hote hain, jaise dedicated graphics cards ya integrated graphics processors. Har type ka apna unique design aur functionality hoti hai.
+            </p>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Integrated Graphics:</strong> Yeh controllers CPU ke andar embedded hote hain aur basic graphical tasks ke liye design kiye gaye hain.</li>
+                <li><strong>Dedicated Graphics Cards:</strong> Yeh alag se installed components hote hain, jo high-performance graphics rendering ke liye design kiye gaye hain, jaise gaming aur video editing ke liye.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Example: Working of a Video Controller</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Jab aap ek video game play karte hain, video controller graphics ko generate karta hai, pixels ko color data assign karta hai, aur inhe frame buffer mein store karta hai. Iske baad, video controller screen ko refresh karta hai aur updated image display karta hai, jo game ko smooth aur responsive banata hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications of Video Controllers</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Gaming:</strong> High-performance video controllers gaming consoles aur PCs mein use hote hain taaki immersive gaming experiences create kiya ja sake.</li>
+                <li><strong>Graphic Design:</strong> Graphic design software ke liye powerful video controllers zaroori hote hain jisse designers images aur videos ko efficiently edit kar sakein.</li>
+                <li><strong>Video Playback:</strong> Video controllers streaming devices aur media players mein use hote hain jisse high-definition videos smoothly play kiye ja sakein.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Random Scan Display Processor</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Random Scan Display Processor, jise vector display ya calligraphic display bhi kaha jata hai, ek aisa device hai jo directly screen par points, lines, aur shapes ko draw karne ke liye use hota hai. Yeh process raster scan display ke comparison mein different hai, kyunki yeh pixel-by-pixel display karne ki bajaye, drawing ko lines aur curves ke through represent karta hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working Principle</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Random Scan Display Processor points ko directly screen par draw karta hai. Jab kisi line ko draw karna hota hai, processor sequentially line ke endpoints ko calculate karta hai aur phir unhe display device par draw karta hai. Iska primary advantage yeh hai ki yeh high-resolution graphics aur smooth curves ko create karne ki capability rakhta hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Key Features</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Vector Graphics Rendering:</strong> Random scan processors vector graphics ko efficiently render karte hain, jisse sharp aur clear images banti hain.</li>
+                <li><strong>Dynamic Refresh:</strong> Yeh processor continuously screen ko refresh karta hai taaki movement aur animations smooth dikhein.</li>
+                <li><strong>High Resolution:</strong> Random scan displays higher resolutions aur details provide karte hain, jo complex shapes aur curves ke liye zaroori hai.</li>
+                <li><strong>Direct Control:</strong> Is processor ke through artists aur designers directly lines aur shapes draw kar sakte hain, jo creative applications ke liye beneficial hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Random Scan Display Processors ka use kai applications mein hota hai, jismein 2D aur 3D graphics, CAD (Computer-Aided Design), aur simulations shamil hain. Yeh devices scientific visualization aur technical drawings ke liye bhi istemal hote hain.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Example: Drawing a Circle</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Maan lijiye hume ek circle draw karna hai. Random Scan Display Processor circle ke center aur radius ko identify karta hai aur phir sequentially points ko calculate karta hai jo circle ke circumference par hain. Is process ke through circle smoothly display hota hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages and Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Advantages:</strong>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>High-quality vector graphics create karne ki capability.</li>
+                        <li>Smooth animations aur movements ko handle karna.</li>
+                        <li>Complex shapes ko accurately represent karna.</li>
+                    </ul>
+                </li>
+                <li><strong>Disadvantages:</strong>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Raster displays ke comparison mein zyada expensive ho sakte hain.</li>
+                        <li>Limited color depth aur shading capabilities.</li>
+                        <li>Complex scenes ko render karne mein zyada time lag sakta hai.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">LCD Displays</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                LCD (Liquid Crystal Display) displays aaj kal ke digital devices mein sabse zyada use hone wale display technologies mein se ek hain. Inka use television sets, computer monitors, laptops, aur smartphones mein hota hai. LCD displays ka kaam liquid crystals ke properties ka istemal karke images aur videos ko display karna hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working Principle</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                LCD displays mein liquid crystals ko electrical signals ke zariye control kiya jata hai. Yeh liquid crystals apne alignment ko change karte hain jab unhe electric current diya jata hai, jisse light ka passage control hota hai. LCD panels mein generally backlight hoti hai jo light ko produce karti hai, aur liquid crystals us light ko filter karte hain taaki desired images display ho sakein.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Types of LCD Displays</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Twisted Nematic (TN):</strong> Yeh sabse common aur low-cost type hai. TN panels fast response times provide karte hain lekin colors aur viewing angles thode limited hote hain.</li>
+                <li><strong>In-Plane Switching (IPS):</strong> IPS panels better color reproduction aur wider viewing angles offer karte hain, jo unhe photography aur graphic design ke liye ideal banata hai.</li>
+                <li><strong>Vertical Alignment (VA):</strong> VA panels deep blacks aur high contrast ratios provide karte hain. Yeh gaming aur multimedia applications ke liye accha option hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages and Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Advantages:</strong>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Thin and lightweight design.</li>
+                        <li>Less power consumption compared to CRT displays.</li>
+                        <li>Better image quality with higher resolutions.</li>
+                    </ul>
+                </li>
+                <li><strong>Disadvantages:</strong>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Limited viewing angles in some types (e.g., TN).</li>
+                        <li>Color accuracy issues in lower-end models.</li>
+                        <li>Possible motion blur in fast-moving images.</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                LCD displays ka use various applications mein hota hai, jaise ki televisions, computer monitors, laptops, mobile phones, digital signage, aur embedded systems. Inka widespread use unki efficiency, image quality, aur compactness ki wajah se hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Example: Comparison of LCD Types</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Maan lijiye aapko ek monitor kharidna hai. Agar aap gaming ke liye kharid rahe hain, toh aapko VA ya IPS panel consider karna chahiye, kyunki inmein better color accuracy aur contrast hota hai. Lekin agar aapko sirf basic tasks ke liye monitor chahiye, toh TN panel kaafi hoga.
+            </p>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+   <!-- Scroll to Top Button with Arrow Icon -->
+   <button id="scrollToTop" aria-label="Scroll to top">
+    <!-- Arrow Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+</button>
+    
+
+    
+</body>
+
+<script>
+    window.embeddedChatbotConfig = {
+        chatbotId: "DHsKvWkOJrvy-n6IEkS0i",
+        domain: "www.chatbase.co"
+    };
+</script>
+<script src="https://www.chatbase.co/embed.min.js" chatbotId="DHsKvWkOJrvy-n6IEkS0i" domain="www.chatbase.co" defer></script>
+
+<!-- JavaScript to show/hide scroll-to-top button on scroll -->
+<script>
+    const scrollToTopButton = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Show button after scrolling down 300px
+            scrollToTopButton.classList.add('show');
+        } else {
+            scrollToTopButton.classList.remove('show');
+        }
+    });
+
+    scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Smooth scroll to top
+        });
+    });
+</script>
+</html>

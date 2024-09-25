@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    /* Custom styles for scroll-to-top button */
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4A90E2;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        display: none; /* Hide by default */
+        z-index: 1000;
+    }
+</style>
+<body>
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Scan Conversion</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Scan conversion ek aisa process hai jisme vector images ko raster format mein convert kiya jata hai, yaani ki line-based shapes ko pixel-based images mein badla jata hai. Yeh process computer graphics mein bahut important hota hai kyunki real-world images ko display devices (jo pixel-based hoti hain) par dikhane ke liye scan conversion ka use hota hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working of Scan Conversion</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Scan conversion ki help se lines, circles, aur polygons ko raster grid par convert kiya jata hai. Yeh raster grid ek 2D array hoti hai jisme pixels ko represent kiya jata hai. Jab hum kisi object ko draw karte hain, to us object ka shape ya position calculate karke, pixels ko on ya off kiya jata hai taaki object ka graphical representation ban sake.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Key Elements of Scan Conversion</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Lines:</strong> Lines ko scan convert karne ke liye Bresenham’s algorithm jaisa algorithm use kiya jata hai jo har pixel ka position decide karta hai.</li>
+                <li><strong>Circles:</strong> Circle ko draw karne ke liye Midpoint Circle algorithm use hota hai jisme circular objects ko raster grid pe represent kiya jata hai.</li>
+                <li><strong>Polygons:</strong> Polygons ko scan convert karne ke liye filling algorithms use kiya jata hai jisme ek closed shape ko color ya pattern se fill kiya jata hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages of Scan Conversion</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Display on Raster Devices:</strong> Scan conversion ki help se vector graphics ko raster displays jaise CRT, LCD, aur LED screens pe dikhaya ja sakta hai.</li>
+                <li><strong>Efficient Rendering:</strong> Algorithms jaise Bresenham aur Midpoint ki wajah se objects ko efficiently aur accurately rasterize kiya ja sakta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Challenges in Scan Conversion</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Aliasing:</strong> Scan conversion mein jagged edges ya staircase effect aa sakta hai, especially lines aur curves ke liye, jo object ki smoothness ko kam kar deta hai.</li>
+                <li><strong>Memory Intensive:</strong> Raster grid ko store karna memory-intensive hota hai kyunki har pixel ka information store karna padta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Video Games:</strong> Real-time graphics aur rendering ke liye scan conversion ka use hota hai taaki high-speed animations aur images dikhai ja sakein.</li>
+                <li><strong>Computer-Aided Design (CAD):</strong> Industrial design aur architecture mein scan conversion ka use complex objects aur structures ko visualize karne ke liye hota hai.</li>
+            </ul>
+        </div>
+    </section>
+
+    
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Line Drawing Algorithm - Direct Method</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Line Drawing Algorithm ke through hum kisi bhi straight line ko 2D raster display par draw karte hain. Direct method, line drawing ka ek basic approach hai jisme line ke endpoints ke coordinates ke basis par line ka slope calculate kiya jata hai, aur fir pixels ko turn on kiya jata hai line draw karne ke liye.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working of Direct Method</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Direct method ka basic principle yeh hota hai ki hum line ka slope (m) find karte hain using the formula:
+            </p>
+            <div class="bg-gray-100 rounded-md p-4 mb-4">
+                <p class="text-lg font-semibold text-gray-800">m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</p>
+            </div>
+            <p class="text-lg text-gray-700 mb-4">
+                Jahan x<sub>1</sub>, y<sub>1</sub> aur x<sub>2</sub>, y<sub>2</sub> line ke endpoints hote hain. Slope ka use karke hum har x coordinate ke corresponding y value calculate karte hain aur us pixel ko on kar dete hain, jahan line pass karegi.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Steps in Direct Method</h2>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Find Slope:</strong> Pehle, line ka slope (m) calculate kiya jata hai using the formula above.</li>
+                <li><strong>For every x, calculate y:</strong> Har x coordinate ke corresponding y coordinate calculate kiya jata hai using the line equation: <em>y = mx + b</em>.</li>
+                <li><strong>Plot the Pixels:</strong> Calculated (x, y) values ke corresponding pixels ko turn on kiya jata hai taaki line draw ho sake.</li>
+            </ol>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Simple to Implement:</strong> Direct method line drawing ke liye simple aur basic approach hai, jise easily implement kiya ja sakta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Inaccuracy:</strong> Direct method line drawing ke liye accurate nahi hoti, especially jab slope bahut steep hota hai.</li>
+                <li><strong>High Computational Cost:</strong> For every x coordinate, y coordinate calculate karna ek computationally expensive process ho sakta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Basic Graphics:</strong> Direct method simple graphic applications mein use hota hai jahan precision utni important nahi hoti.</li>
+            </ul>
+        </div>
+    </section>
+
+    
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">DDA Algorithm</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                DDA (Digital Differential Analyzer) Algorithm ek simple line drawing algorithm hai jo line ke endpoints ke beech ke pixels ko plot karne ke liye use hota hai. Yeh ek incremental scan-conversion method hai jisme line ko small steps mein draw kiya jata hai using floating-point calculations.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working of DDA Algorithm</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                DDA algorithm ka basic concept yeh hota hai ki agar kisi line ka slope (m) 1 se chhota ho, to x ko ek constant increment diya jata hai aur y ka corresponding value calculate kiya jata hai. Agar slope 1 se bada ho, to y ko increment kiya jata hai aur corresponding x value calculate kiya jata hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Steps in DDA Algorithm</h2>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Calculate Δx and Δy:</strong> Line ke endpoints ke coordinates se Δx (change in x) aur Δy (change in y) calculate kiya jata hai:
+                    <div class="bg-gray-100 rounded-md p-4 mt-2">
+                        <p class="text-lg font-semibold text-gray-800">Δx = x<sub>2</sub> - x<sub>1</sub><br>Δy = y<sub>2</sub> - y<sub>1</sub></p>
+                    </div>
+                </li>
+                <li><strong>Find Steps:</strong> Maximum steps ka determination Δx aur Δy ke beech ke maximum value ke basis par kiya jata hai:
+                    <div class="bg-gray-100 rounded-md p-4 mt-2">
+                        <p class="text-lg font-semibold text-gray-800">Steps = max(|Δx|, |Δy|)</p>
+                    </div>
+                </li>
+                <li><strong>Calculate x-increment and y-increment:</strong> Har step par x aur y ko update karne ke liye incremental values calculate ki jati hain:
+                    <div class="bg-gray-100 rounded-md p-4 mt-2">
+                        <p class="text-lg font-semibold text-gray-800">x-increment = Δx / Steps<br>y-increment = Δy / Steps</p>
+                    </div>
+                </li>
+                <li><strong>Plot the Line:</strong> Initial point se start karke x aur y coordinates ko increment kiya jata hai, aur respective pixel plot kiya jata hai.</li>
+            </ol>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Simplicity:</strong> DDA algorithm simple aur easy to implement hota hai.</li>
+                <li><strong>Works for All Slopes:</strong> Yeh algorithm kisi bhi slope ki line draw karne mein capable hota hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Floating-Point Operations:</strong> DDA algorithm floating-point calculations par depend karta hai, jo slow performance lead kar sakta hai.</li>
+                <li><strong>Rounding Errors:</strong> Continuous rounding-off ki wajah se thoda error ho sakta hai line drawing mein.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Computer Graphics:</strong> DDA algorithm ka use graphical applications mein line drawing ke liye hota hai.</li>
+                <li><strong>CAD Software:</strong> Yeh algorithm CAD (Computer-Aided Design) applications mein bhi use kiya jata hai to draw precise lines.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Bresenham's Line Algorithm</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Bresenham's Line Algorithm ek efficient line-drawing algorithm hai jo integer arithmetic ka use karta hai, bina floating-point calculations ke. Yeh algorithm DDA se zyada fast hota hai kyunki yeh line drawing ke liye sirf integer operations par depend karta hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working of Bresenham's Line Algorithm</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Bresenham's algorithm ka primary idea yeh hai ki line ko draw karte waqt, har point par ek decision variable ka use kiya jata hai jo determine karta hai ki agla pixel x-direction mein shift hoga ya y-direction mein. Yeh decision variable incremental steps mein calculate hota hai, jisse line smooth aur accurate hoti hai.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Steps in Bresenham's Algorithm</h2>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Initial Setup:</strong> Line ke endpoints ko (x1, y1) aur (x2, y2) ke form mein specify karte hain. Calculate karo Δx aur Δy, jo x aur y ke beech ke distance ko denote karta hai:
+                    <div class="bg-gray-100 rounded-md p-4 mt-2">
+                        <p class="text-lg font-semibold text-gray-800">Δx = x<sub>2</sub> - x<sub>1</sub><br>Δy = y<sub>2</sub> - y<sub>1</sub></p>
+                    </div>
+                </li>
+                <li><strong>Calculate Decision Variable:</strong> Decision variable ko initial condition set kiya jata hai:
+                    <div class="bg-gray-100 rounded-md p-4 mt-2">
+                        <p class="text-lg font-semibold text-gray-800">p = 2Δy - Δx</p>
+                    </div>
+                </li>
+                <li><strong>Plot the Line:</strong> Starting point (x1, y1) ko plot karo aur line ke endpoints tak iterate karo. Har step par decision variable ko update karo aur yeh check karo ki agla pixel kahan plot karna hai:
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Agar p < 0 ho, next pixel x-direction mein plot hota hai.</li>
+                        <li>Agar p ≥ 0 ho, next pixel x aur y dono directions mein plot hota hai, aur p ko accordingly update kiya jata hai.</li>
+                    </ul>
+                </li>
+            </ol>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Efficiency:</strong> Bresenham's algorithm zyada fast hota hai kyunki yeh sirf integer calculations ka use karta hai.</li>
+                <li><strong>Accuracy:</strong> Yeh algorithm accurately straight lines draw karta hai bina floating-point errors ke.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Limited to Straight Lines:</strong> Bresenham's algorithm curved lines ya anti-aliased lines ko handle nahi karta.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Graphics Rendering:</strong> Bresenham's algorithm ka use graphical applications mein line drawing ke liye hota hai.</li>
+                <li><strong>Games and Simulations:</strong> Yeh algorithm video games aur simulations mein bhi use hota hai to draw simple lines efficiently.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="max-w-7xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Mid-Point Circle Algorithm</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Mid-Point Circle Algorithm ek efficient algorithm hai jo integer arithmetic ka use karta hai to draw a circle. Yeh algorithm Bresenham's Line Algorithm ki tarah fast hota hai, aur isme floating-point calculations nahi hoti. Mid-point circle algorithm circles ko ek discrete 2D space mein plot karta hai, sirf addition aur subtraction operations ke zariye.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Working of Mid-Point Circle Algorithm</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Yeh algorithm symmetric properties ka use karta hai. Agar ek quadrant mein circle ke points calculate ho gaye, toh symmetry ke kaaran baaki ke points automatically plot kiye ja sakte hain. Algorithm incremental calculation ko use karta hai taaki agla point efficiently find kiya ja sake.
+            </p>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Steps in Mid-Point Circle Algorithm</h2>
+            <ol class="list-decimal pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Initial Setup:</strong> Start karo center point (x<sub>c</sub>, y<sub>c</sub>) aur radius r ke saath. Starting point (x, y) set kiya jata hai as (r, 0), aur decision variable ko calculate kiya jata hai:
+                    <div class="bg-gray-100 rounded-md p-4 mt-2">
+                        <p class="text-lg font-semibold text-gray-800">p = 1 - r</p>
+                    </div>
+                </li>
+                <li><strong>Decision Variable Update:</strong> Har step par decision variable p ko update kiya jata hai:
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>Agar p < 0 ho, toh agla point (x + 1, y) hota hai aur p ko update karte hain p = p + 2x + 1.</li>
+                        <li>Agar p ≥ 0 ho, toh agla point (x + 1, y - 1) hota hai aur p ko update karte hain p = p + 2x - 2y + 1.</li>
+                    </ul>
+                </li>
+                <li><strong>Symmetry Use:</strong> Circle ke 8 symmetric points ko plot karte hain, ek point calculate karne ke baad:
+                    <div class="bg-gray-100 rounded-md p-4 mt-2">
+                        <p class="text-lg font-semibold text-gray-800">(x + x<sub>c</sub>, y + y<sub>c</sub>)</p>
+                        <p class="text-lg font-semibold text-gray-800">(y + x<sub>c</sub>, x + y<sub>c</sub>)</p>
+                        <p class="text-lg font-semibold text-gray-800">(y + x<sub>c</sub>, -x + y<sub>c</sub>)</p>
+                    </div>
+                </li>
+            </ol>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Advantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Efficiency:</strong> Yeh algorithm Bresenham's algorithm ki tarah fast hota hai kyunki yeh sirf integer operations ka use karta hai.</li>
+                <li><strong>Simplicity:</strong> Algorithm ko implement karna simple hota hai aur iska use hardware implementations mein bhi kiya ja sakta hai.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Disadvantages</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Anti-Aliasing:</strong> Mid-point circle algorithm curved lines par anti-aliasing issues face kar sakta hai, jo jagged edges create karte hain.</li>
+            </ul>
+    
+            <h2 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Applications</h2>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li><strong>Computer Graphics:</strong> Is algorithm ka use graphic design aur video game development mein circles aur arcs plot karne ke liye hota hai.</li>
+                <li><strong>Rendering Engines:</strong> Mid-point circle algorithm ko rendering engines mein efficient circle drawing ke liye implement kiya jata hai.</li>
+            </ul>
+        </div>
+    </section>
+
+    <button id="scrollToTop" class="scroll-to-top">
+        ↑
+    </button>
+
+    <footer class="mt-6 text-center text-gray-600">
+        <p class="text-sm">Developed by Vaibhav Srivastav</p>
+        <p class="text-xs">&copy; 2024 Vaibhav Srivastav. All rights reserved.</p>
+    </footer>
+
+
+        
+</body>
+
+<script>
+    // Scroll to top functionality
+    window.onscroll = function() {
+        const button = document.getElementById('scrollToTop');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+
+    document.getElementById('scrollToTop').onclick = function() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    };
+
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('nav div.md\\:flex');
+
+    hamburger.onclick = function() {
+        navLinks.classList.toggle('hidden');
+    };
+</script>
+</html>
